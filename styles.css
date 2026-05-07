@@ -519,10 +519,27 @@ section article { overflow: hidden; }
   .contact-cell { padding: 36px 22px !important; }
 }
 
-/* AI Era — on mobile: image moves above text, shown as full-width banner */
+/* AI Era — full-bleed banner above text on mobile */
 @media (max-width: 880px) {
-  .ai-era-img-wrap { order: -1; }
-  .ai-era-img { aspect-ratio: auto !important; height: 300px; object-position: center 20% !important; }
+  .ai-era-img-wrap {
+    order: -1;
+    margin-left: -32px !important;
+    margin-right: -32px !important;
+    width: calc(100% + 64px) !important;
+  }
+  .ai-era-img {
+    aspect-ratio: auto !important;
+    height: 300px;
+    object-position: center center !important;
+  }
+}
+@media (max-width: 720px) {
+  .ai-era-img-wrap {
+    margin-left: -22px !important;
+    margin-right: -22px !important;
+    width: calc(100% + 44px) !important;
+  }
+  .ai-era-img { height: 260px; }
 }
 @media (max-width: 640px) {
   .ai-era-img { height: 240px; }
