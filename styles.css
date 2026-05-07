@@ -524,9 +524,12 @@ section article { overflow: hidden; }
   .ai-era-img { aspect-ratio: 16/9 !important; }
 }
 
-/* Profile portrait — too tall when column stacks */
+/* Profile portrait — keep portrait, center-crop to show full figure */
 @media (max-width: 880px) {
-  .profile-portrait-img { aspect-ratio: 4/3 !important; max-height: 380px; }
+  .profile-portrait-img { object-position: center center !important; max-height: 500px; }
+}
+@media (max-width: 640px) {
+  .profile-portrait-img { max-height: 380px; }
 }
 
 /* Hero portrait — limit height on small mobile */
@@ -575,4 +578,36 @@ section article { overflow: hidden; }
 /* Meta strip font size */
 @media (max-width: 480px) {
   .meta-num { font-size: 22px !important; }
+}
+
+/* ── Text & heading fixes for narrow mobile ─────── */
+
+/* Mobile line-break utility */
+.br-mob { display: none; }
+@media (max-width: 640px) { .br-mob { display: inline; } }
+
+/* Section headings — scale with vw below 480px so they don't overflow */
+@media (max-width: 480px) {
+  .sec-title { font-size: clamp(22px, 6.5vw, 64px) !important; line-height: 1.3; }
+}
+
+/* Philosophy h2 */
+@media (max-width: 640px) {
+  #philosophy h2 { font-size: clamp(24px, 5.6vw, 76px) !important; }
+}
+
+/* Redefinition strikethrough lines */
+@media (max-width: 640px) {
+  .redef-strike { font-size: clamp(14px, 3.2vw, 40px) !important; }
+}
+
+/* Redefinition answer lines */
+@media (max-width: 640px) {
+  .redef-answer { font-size: clamp(22px, 4.4vw, 56px) !important; }
+}
+
+/* Profile quote box */
+@media (max-width: 640px) {
+  .profile-quote { padding: 20px !important; }
+  .profile-quote > span { font-size: 16px !important; }
 }
