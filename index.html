@@ -4,1139 +4,597 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>株式会社Ma — 古賀久達 / 人の可能性に火をつける。</title>
+<meta name="description" content="佐賀から世界へ。株式会社Ma代表・古賀久達のオフィシャルサイト。キャラ売りブランディング、人間力コーチング、コミュニケーション研修、動画制作・SNS運用サポート。" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
-
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<style>
+/* ── Hero ── */
+.hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: end; }
+.meta-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-top: 96px; padding-top: 28px; border-top: 1px solid var(--line); }
+@media (max-width: 880px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .meta-strip { grid-template-columns: repeat(2,1fr); }
+}
+/* ── Roles / Services ── */
+.roles-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--line-strong); border: 1px solid var(--line-strong); }
+.svc-top { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--line-strong); border: 1px solid var(--line-strong); border-bottom: none; }
+.svc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line-strong); border: 1px solid var(--line-strong); }
+.svc-nudge { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; margin-top: 56px; padding: 32px 40px; background: var(--bg-2); border-left: 3px solid var(--accent); }
+@media (max-width: 980px) {
+  .svc-top { grid-template-columns: 1fr; }
+  .svc-grid { grid-template-columns: repeat(2,1fr); }
+  .svc-nudge { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) { .svc-grid { grid-template-columns: 1fr; } }
+@media (max-width: 880px) { .roles-grid { grid-template-columns: 1fr; } }
+/* ── Strengths ── */
+.str-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+@media (max-width: 980px) { .str-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 640px) { .str-grid { grid-template-columns: 1fr; } }
+/* ── Two col ── */
+.two-col { display: grid; gap: 64px; }
+.two-col-40 { grid-template-columns: 0.4fr 1fr; }
+.two-col-50 { grid-template-columns: 1.1fr 1fr; }
+.two-col-profile { grid-template-columns: 1fr 1.2fr; }
+.two-col-check { grid-template-columns: 1fr 1.2fr; }
+.two-col-ee { grid-template-columns: 0.85fr 1.15fr; }
+@media (max-width: 880px) { .two-col { grid-template-columns: 1fr !important; gap: 32px; } }
+/* ── Activities ── */
+.act-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px 64px; border-top: 1px solid var(--invert-line); }
+@media (max-width: 720px) { .act-grid { grid-template-columns: 1fr; } }
+/* ── Contact ── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line-strong); border: 1px solid var(--line-strong); }
+@media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; } }
+/* ── TP ── */
+.tp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.tp-story { display: grid; grid-template-columns: 120px 1fr; margin-top: 120px; }
+@media (max-width: 880px) {
+  .tp-grid { grid-template-columns: 1fr; gap: 48px; }
+  .tp-story { grid-template-columns: 80px 1fr; }
+}
+/* ── Phil ── */
+.phil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+@media (max-width: 880px) { .phil-grid { grid-template-columns: 1fr; gap: 24px; } }
+/* ── Not Just Stars ── */
+.njs-lines { margin: 48px 0 40px; border-top: 1px solid var(--line); }
+</style>
 </head>
 <body>
-<div id="root"></div>
 
-<script type="text/babel">
-const { useEffect, useState, useCallback, useRef, useMemo, Fragment } = React;
-
-/* ─────────────────────────────────────────────
-   TWEAKS PANEL
-───────────────────────────────────────────── */
-const __TWEAKS_STYLE = `
-  .twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;
-    max-height:calc(100vh - 32px);display:flex;flex-direction:column;
-    background:rgba(250,249,247,.88);color:#29261b;
-    -webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%);
-    border:.5px solid rgba(255,255,255,.6);border-radius:14px;
-    box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 12px 40px rgba(0,0,0,.18);
-    font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}
-  .twk-hd{display:flex;align-items:center;justify-content:space-between;
-    padding:10px 8px 10px 14px;cursor:move;user-select:none}
-  .twk-hd b{font-size:12px;font-weight:600;letter-spacing:.01em}
-  .twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);
-    width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}
-  .twk-x:hover{background:rgba(0,0,0,.06);color:#29261b}
-  .twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;
-    overflow-y:auto;min-height:0;scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.15) transparent}
-  .twk-row{display:flex;flex-direction:column;gap:5px}
-  .twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}
-  .twk-lbl{display:flex;justify-content:space-between;align-items:baseline;color:rgba(41,38,27,.72)}
-  .twk-lbl>span:first-child{font-weight:500}
-  .twk-sect{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-    color:rgba(41,38,27,.45);padding:10px 0 0}
-  .twk-sect:first-child{padding-top:0}
-  .twk-slider{appearance:none;-webkit-appearance:none;width:100%;height:4px;margin:6px 0;
-    border-radius:999px;background:rgba(0,0,0,.12);outline:none}
-  .twk-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
-    width:14px;height:14px;border-radius:50%;background:#fff;
-    border:.5px solid rgba(0,0,0,.12);box-shadow:0 1px 3px rgba(0,0,0,.2);cursor:default}
-  .twk-seg{position:relative;display:flex;padding:2px;border-radius:8px;
-    background:rgba(0,0,0,.06);user-select:none}
-  .twk-seg-thumb{position:absolute;top:2px;bottom:2px;border-radius:6px;
-    background:rgba(255,255,255,.9);box-shadow:0 1px 2px rgba(0,0,0,.12);
-    transition:left .15s cubic-bezier(.3,.7,.4,1),width .15s}
-  .twk-seg button{appearance:none;position:relative;z-index:1;flex:1;border:0;
-    background:transparent;color:inherit;font:inherit;font-weight:500;min-height:22px;
-    border-radius:6px;cursor:default;padding:4px 6px;line-height:1.2}
-  .twk-toggle{position:relative;width:32px;height:18px;border:0;border-radius:999px;
-    background:rgba(0,0,0,.15);transition:background .15s;cursor:default;padding:0}
-  .twk-toggle[data-on="1"]{background:#34c759}
-  .twk-toggle i{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;
-    background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .15s}
-  .twk-toggle[data-on="1"] i{transform:translateX(14px)}
-  .twk-chips{display:flex;gap:6px}
-  .twk-chip{position:relative;appearance:none;flex:1;min-width:0;height:46px;
-    padding:0;border:0;border-radius:6px;overflow:hidden;cursor:default;
-    box-shadow:0 0 0 .5px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.06);transition:transform .12s}
-  .twk-chip:hover{transform:translateY(-1px)}
-  .twk-chip[data-on="1"]{box-shadow:0 0 0 1.5px rgba(0,0,0,.85),0 2px 6px rgba(0,0,0,.15)}
-  .twk-chip>span{position:absolute;top:0;bottom:0;right:0;width:34%;
-    display:flex;flex-direction:column;box-shadow:-1px 0 0 rgba(0,0,0,.1)}
-  .twk-chip>span>i{flex:1;box-shadow:0 -1px 0 rgba(0,0,0,.1)}
-  .twk-chip>span>i:first-child{box-shadow:none}
-  .twk-chip svg{position:absolute;top:6px;left:6px;width:13px;height:13px;
-    filter:drop-shadow(0 1px 1px rgba(0,0,0,.3))}
-`;
-
-function useTweaks(defaults) {
-  const [values, setValues] = useState(defaults);
-  const setTweak = useCallback((keyOrEdits, val) => {
-    const edits = typeof keyOrEdits === 'object' && keyOrEdits !== null
-      ? keyOrEdits : { [keyOrEdits]: val };
-    setValues((prev) => ({ ...prev, ...edits }));
-  }, []);
-  return [values, setTweak];
-}
-
-function TweaksPanel({ title = 'Tweaks', children }) {
-  const [open, setOpen] = useState(true);
-  const dragRef = useRef(null);
-  const offsetRef = useRef({ x: 16, y: 16 });
-  const PAD = 16;
-
-  const clampToViewport = useCallback(() => {
-    const panel = dragRef.current;
-    if (!panel) return;
-    const w = panel.offsetWidth, h = panel.offsetHeight;
-    const maxRight = Math.max(PAD, window.innerWidth - w - PAD);
-    const maxBottom = Math.max(PAD, window.innerHeight - h - PAD);
-    offsetRef.current = {
-      x: Math.min(maxRight, Math.max(PAD, offsetRef.current.x)),
-      y: Math.min(maxBottom, Math.max(PAD, offsetRef.current.y)),
-    };
-    panel.style.right = offsetRef.current.x + 'px';
-    panel.style.bottom = offsetRef.current.y + 'px';
-  }, []);
-
-  useEffect(() => {
-    if (!open) return;
-    clampToViewport();
-    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(clampToViewport) : null;
-    if (ro) ro.observe(document.documentElement);
-    else window.addEventListener('resize', clampToViewport);
-    return () => { if (ro) ro.disconnect(); else window.removeEventListener('resize', clampToViewport); };
-  }, [open, clampToViewport]);
-
-  const onDragStart = (e) => {
-    const panel = dragRef.current;
-    if (!panel) return;
-    const r = panel.getBoundingClientRect();
-    const sx = e.clientX, sy = e.clientY;
-    const startRight = window.innerWidth - r.right;
-    const startBottom = window.innerHeight - r.bottom;
-    const move = (ev) => {
-      offsetRef.current = { x: startRight - (ev.clientX - sx), y: startBottom - (ev.clientY - sy) };
-      clampToViewport();
-    };
-    const up = () => { window.removeEventListener('mousemove', move); window.removeEventListener('mouseup', up); };
-    window.addEventListener('mousemove', move);
-    window.addEventListener('mouseup', up);
-  };
-
-  if (!open) return (
-    <button onClick={() => setOpen(true)} style={{
-      position: 'fixed', right: 16, bottom: 16, zIndex: 2147483646,
-      background: 'rgba(250,249,247,.88)', border: '.5px solid rgba(0,0,0,.1)',
-      borderRadius: 10, padding: '8px 14px', cursor: 'default',
-      font: '11.5px/1 ui-sans-serif,system-ui,sans-serif', backdropFilter: 'blur(12px)',
-    }}>Tweaks</button>
-  );
-  return (
-    <>
-      <style>{__TWEAKS_STYLE}</style>
-      <div ref={dragRef} className="twk-panel" style={{ right: offsetRef.current.x, bottom: offsetRef.current.y }}>
-        <div className="twk-hd" onMouseDown={onDragStart}>
-          <b>{title}</b>
-          <button className="twk-x" onClick={() => setOpen(false)}>✕</button>
-        </div>
-        <div className="twk-body">{children}</div>
-      </div>
-    </>
-  );
-}
-
-function TweakSection({ label, children }) {
-  return <><div className="twk-sect">{label}</div>{children}</>;
-}
-
-function TweakRow({ label, children }) {
-  return <div className="twk-row"><div className="twk-lbl"><span>{label}</span></div>{children}</div>;
-}
-
-function TweakToggle({ label, value, onChange }) {
-  return (
-    <div className="twk-row twk-row-h">
-      <div className="twk-lbl"><span>{label}</span></div>
-      <button type="button" className="twk-toggle" data-on={value ? '1' : '0'}
-              onClick={() => onChange(!value)}><i /></button>
-    </div>
-  );
-}
-
-function TweakRadio({ label, value, options, onChange }) {
-  const opts = options.map((o) => (typeof o === 'object' ? o : { value: o, label: o }));
-  const idx = Math.max(0, opts.findIndex((o) => o.value === value));
-  const n = opts.length;
-  const trackRef = useRef(null);
-  const segAt = (clientX) => {
-    const r = trackRef.current.getBoundingClientRect();
-    const inner = r.width - 4;
-    const i = Math.floor(((clientX - r.left - 2) / inner) * n);
-    return opts[Math.max(0, Math.min(n - 1, i))].value;
-  };
-  const onPointerDown = (e) => {
-    onChange(segAt(e.clientX));
-    const move = (ev) => { if (trackRef.current) onChange(segAt(ev.clientX)); };
-    const up = () => { window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); };
-    window.addEventListener('pointermove', move);
-    window.addEventListener('pointerup', up);
-  };
-  return (
-    <TweakRow label={label}>
-      <div ref={trackRef} role="radiogroup" onPointerDown={onPointerDown} className="twk-seg">
-        <div className="twk-seg-thumb" style={{ left: `calc(2px + ${idx} * (100% - 4px) / ${n})`, width: `calc((100% - 4px) / ${n})` }} />
-        {opts.map((o) => <button key={o.value} type="button" role="radio" aria-checked={o.value === value}>{o.label}</button>)}
-      </div>
-    </TweakRow>
-  );
-}
-
-function TweakColor({ label, value, options, onChange }) {
-  const key = (o) => String(JSON.stringify(o)).toLowerCase();
-  const cur = key(value);
-  return (
-    <TweakRow label={label}>
-      <div className="twk-chips" role="radiogroup">
-        {options.map((o, i) => {
-          const on = key(o) === cur;
-          return (
-            <button key={i} type="button" className="twk-chip" role="radio"
-                    data-on={on ? '1' : '0'} style={{ background: o }}
-                    onClick={() => onChange(o)} />
-          );
-        })}
-      </div>
-    </TweakRow>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   SHARED PRIMITIVES
-───────────────────────────────────────────── */
-const ImgPh = ({ label, ratio = "3/4", className = "", invert = false, corner, style }) => (
-  <div className={`imgph ${invert ? "invert" : ""} ${className}`} style={{ aspectRatio: ratio, ...style }}>
-    {corner && <div className="corner">{corner}</div>}
-    <div className="label">{label}</div>
+<!-- NAV -->
+<nav class="nav">
+  <a href="#top" class="brand" style="text-decoration:none;color:inherit;">
+    <div class="brand-mark">M</div>
+    <div class="brand-text">株式会社Ma<small>HISAMICHI KOGA</small></div>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#roles">Roles</a>
+    <a href="#philosophy">Philosophy</a>
+    <a href="#services">Services</a>
+    <a href="#profile">Profile</a>
+    <a href="#contact" class="cta-mini keep">話してみる →</a>
   </div>
-);
+</nav>
 
-const Kicker = ({ children, num }) => (
-  <div className="kicker">
-    <span className="dot"></span>
-    {num && <span style={{ marginRight: 14, fontFamily: "var(--mono)", color: "var(--accent)" }}>{num}</span>}
-    {children}
+<main id="top">
+
+<!-- 01 HERO -->
+<section style="padding-top:140px;padding-bottom:80px;">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">01 / KOGA HISAMICHI</span>A Trailer, Not a Profile</div>
+        <h1 style="font-size:clamp(48px,8.4vw,124px);line-height:.96;font-weight:700;letter-spacing:-.005em;margin:32px 0 28px;text-wrap:balance;">
+          人の<br><span style="font-family:var(--serif);font-weight:500;color:var(--accent);">可能性</span>に<br>火をつける。
+        </h1>
+        <p style="font-size:17px;line-height:1.95;color:var(--fg-2);max-width:46ch;margin:0 0 20px;">肩書きでは、収まりきらない。<br>佐賀から世界へ、今日も何かを動かしている。</p>
+        <p style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:46ch;margin:0 0 24px;">一度、<span style="font-family:var(--serif);color:var(--accent);">死を近くに感じた</span>からこそ、<br>自分らしく生きる人を増やしたい。</p>
+        <p style="font-family:var(--serif);font-size:18px;line-height:1.85;color:var(--fg);margin:0 0 12px;">古賀久達。<br>人生をネタに、未来をつくる。</p>
+        <p style="font-size:13px;line-height:1.85;color:var(--muted);max-width:44ch;margin:28px 0 36px;">株式会社Ma 代表取締役 / NPO法人グローバルブリッジ理事長 /<br>Bohol Sunset Properties Inc. 代表</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="#contact" class="btn">まずは話してみる <span class="arrow">→</span></a>
+          <a href="#profile" class="btn btn-ghost">古賀久達を知る</a>
+          <a href="#contact" class="btn btn-ghost">一緒に何か始める</a>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="imgph" style="aspect-ratio:4/5;">
+          <div class="corner">MAIN / 01</div>
+          <div class="label">HERO PORTRAIT — Hisamichi Koga, natural light</div>
+        </div>
+        <div style="position:absolute;left:-28px;bottom:-28px;background:var(--fg);color:var(--bg);padding:20px 24px;max-width:240px;">
+          <div class="mono" style="color:var(--accent);margin-bottom:8px;">SINCE 2018</div>
+          <div style="font-size:13px;line-height:1.6;font-family:var(--eng);">Saga · Tokyo · Bohol<br>Entrepreneur · Coach · Bridge</div>
+        </div>
+      </div>
+    </div>
+    <div class="meta-strip">
+      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Companies</div><div style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;">3</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">事業体を経営</div></div>
+      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Services</div><div style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;">6+</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">サービス領域</div></div>
+      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Countries</div><div style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;">2ヶ国</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">佐賀 × ボホール</div></div>
+      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">At a time</div><div style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;">1人</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">に火をつける覚悟</div></div>
+    </div>
   </div>
-);
+</section>
 
-/* ─────────────────────────────────────────────
-   01. HERO
-───────────────────────────────────────────── */
-const Hero = () => (
-  <section data-screen-label="01 Hero" style={{ paddingTop: 140, paddingBottom: 80, position: "relative" }}>
-    <div className="wrap">
-      <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 64, alignItems: "end" }} className="hero-grid">
-        <div>
-          <Kicker num="01 / KOGA HISAMICHI">A Trailer, Not a Profile</Kicker>
-          <h1 style={{ fontSize: "clamp(48px, 8.4vw, 124px)", lineHeight: 0.96, fontWeight: 700, letterSpacing: "-0.005em", margin: "32px 0 28px 0", textWrap: "balance" }}>
-            人の<br />
-            <span style={{ fontFamily: "var(--serif)", fontWeight: 500, color: "var(--accent)" }}>可能性</span>に<br />
-            火をつける。
-          </h1>
-          <p style={{ fontSize: 17, lineHeight: 1.95, color: "var(--fg-2)", maxWidth: "46ch", margin: "0 0 20px 0" }}>
-            肩書きでは、収まりきらない。<br />
-            佐賀から世界へ、今日も何かを動かしている。
-          </p>
-          <p style={{ fontSize: 16, lineHeight: 1.95, color: "var(--fg-2)", maxWidth: "46ch", margin: "0 0 24px 0" }}>
-            一度、<span style={{ fontFamily: "var(--serif)", color: "var(--accent)" }}>死を近くに感じた</span>からこそ、<br />
-            自分らしく生きる人を増やしたい。
-          </p>
-          <p style={{ fontFamily: "var(--serif)", fontSize: 18, lineHeight: 1.85, color: "var(--fg)", margin: "0 0 12px 0" }}>
-            古賀久達。<br />
-            人生をネタに、未来をつくる。
-          </p>
-          <p style={{ fontSize: 13, lineHeight: 1.85, color: "var(--muted)", maxWidth: "44ch", margin: "28px 0 36px 0" }}>
-            株式会社Ma 代表取締役 / NPO法人グローバルブリッジ理事長 /<br />
-            Bohol Sunset Properties Inc. 代表
-          </p>
-          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <a href="#contact" className="btn">まずは話してみる <span className="arrow">→</span></a>
-            <a href="#profile" className="btn btn-ghost">古賀久達を知る</a>
-            <a href="#contact" className="btn btn-ghost">一緒に何か始める</a>
-          </div>
-        </div>
+<!-- MARQUEE -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>人の可能性に火をつける <span class="sep">✦</span></span>
+    <span>圧倒的なキャラ売り <span class="sep">✦</span></span>
+    <span>佐賀から、世界へ <span class="sep">✦</span></span>
+    <span>事業をつくる。人を育てる。地域を動かす <span class="sep">✦</span></span>
+    <span>整った正解より、にじみ出る人間味 <span class="sep">✦</span></span>
+    <span>"この人だから"が、最強の差別化 <span class="sep">✦</span></span>
+    <span>人の可能性に火をつける <span class="sep">✦</span></span>
+    <span>圧倒的なキャラ売り <span class="sep">✦</span></span>
+    <span>佐賀から、世界へ <span class="sep">✦</span></span>
+    <span>事業をつくる。人を育てる。地域を動かす <span class="sep">✦</span></span>
+    <span>整った正解より、にじみ出る人間味 <span class="sep">✦</span></span>
+    <span>"この人だから"が、最強の差別化 <span class="sep">✦</span></span>
+  </div>
+</div>
 
-        <div style={{ position: "relative" }}>
-          <ImgPh label="HERO PORTRAIT — Hisamichi Koga, looking off-camera, natural light" ratio="4/5" corner="MAIN / 01" />
-          <div style={{ position: "absolute", left: -28, bottom: -28, background: "var(--fg)", color: "var(--bg)", padding: "20px 24px", maxWidth: 240 }}>
-            <div className="mono" style={{ color: "var(--accent)", marginBottom: 8 }}>SINCE 2018</div>
-            <div style={{ fontSize: 13, lineHeight: 1.6, fontFamily: "var(--eng)" }}>
-              Saga · Tokyo · Bohol<br />
-              Entrepreneur · Coach · Bridge
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div style={{ marginTop: 96, paddingTop: 28, borderTop: "1px solid var(--line)", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }} className="meta-strip">
-        {[
-          ["3", "事業体を経営", "Companies"],
-          ["6+", "サービス領域", "Services"],
-          ["2ヶ国", "佐賀 × ボホール", "Countries"],
-          ["1人", "に火をつける覚悟", "At a time"],
-        ].map(([n, jp, en]) => (
-          <div key={jp}>
-            <div className="mono" style={{ color: "var(--muted)", marginBottom: 8 }}>{en}</div>
-            <div style={{ fontSize: 28, fontWeight: 700, fontFamily: "var(--eng)", letterSpacing: "-0.02em" }}>{n}</div>
-            <div style={{ fontSize: 13, color: "var(--fg-2)", marginTop: 4 }}>{jp}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-    <style>{`
-      @media (max-width: 880px) {
-        .hero-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
-        .meta-strip { grid-template-columns: repeat(2, 1fr) !important; }
-      }
-    `}</style>
-  </section>
-);
-
-/* ─────────────────────────────────────────────
-   MARQUEE
-───────────────────────────────────────────── */
-const Marquee = () => {
-  const phrases = [
-    "人の可能性に火をつける", "圧倒的なキャラ売り", "佐賀から、世界へ",
-    "事業をつくる。人を育てる。地域を動かす", "整った正解より、にじみ出る人間味",
-    ""この人だから"が、最強の差別化",
-  ];
-  const items = [...phrases, ...phrases];
-  return (
-    <div className="ticker">
-      <div className="ticker-track">
-        {items.map((p, i) => <span key={i}>{p} <span className="sep">✦</span></span>)}
-      </div>
-    </div>
-  );
-};
-
-/* ─────────────────────────────────────────────
-   02. ABOUT
-───────────────────────────────────────────── */
-const About = () => (
-  <section data-screen-label="02 About" id="about">
-    <div className="wrap">
-      <div style={{ display: "grid", gridTemplateColumns: "0.4fr 1fr", gap: 64 }} className="two-col">
-        <div><Kicker num="02">About</Kicker></div>
-        <div>
-          <h2 className="sec-title">
-            何者かではなく、<br /><em>何を動かしてきたか。</em>
-          </h2>
-          <div className="sec-body">
-            <p>古賀久達は、株式会社Ma 代表取締役。佐賀を拠点に、フィットネス事業、企業PR、SNSコンサルティング、コーチング、動画を活用した人材・採用支援を行っています。</p>
-            <p>また、NPO法人グローバルブリッジ理事長として、国際交流・教育支援・地域活性化にも取り組み、フィリピンをはじめとする海外とのネットワークを活かした活動を展開。</p>
-            <p>さらに、フィリピン現地法人 Bohol Sunset Properties Inc. の代表として、ボホール島で不動産開発・賃貸事業にも挑戦しています。</p>
-            <p style={{ fontFamily: "var(--serif)", fontSize: 18, color: "var(--fg)", marginTop: 32 }}>
-              経営者であり、挑戦者であり、支援者であり、表現者。<br />
-              人の魅力を見つけ、可能性を形にする人間です。
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <style>{`@media (max-width: 880px) { .two-col { grid-template-columns: 1fr !important; gap: 32px !important; } }`}</style>
-  </section>
-);
-
-/* ─────────────────────────────────────────────
-   03. ROLES
-───────────────────────────────────────────── */
-const Roles = () => {
-  const roles = [
-    { n: "01", jp: "株式会社Ma 代表取締役", en: "CEO / Representative Director, Ma Inc.", body: "事業運営、SNS支援、企業PR、コーチング、ブランディング支援を展開。人の魅力や企業の本質を引き出し、伝わる形に変える。", tag: "BRANDING" },
-    { n: "02", jp: "NPO法人グローバルブリッジ 理事長", en: "Chairperson, Global Bridge NPO", body: "国際交流、教育支援、地域活性化、ボランティア活動などを推進。日本と世界をつなぐ架け橋として活動。", tag: "BRIDGE" },
-    { n: "03", jp: "Bohol Sunset Properties Inc. 代表", en: "President, Bohol Sunset Properties Inc.", body: "フィリピン・ボホール島にて、不動産開発・賃貸事業を展開。現地雇用、商業スペース開発、海外事業の実践に取り組む。", tag: "REAL ESTATE" },
-    { n: "04", jp: "Make & Space 運営", en: "Fitness Gym Management", body: "佐賀市でパーソナルジム・女性向けフィットネス事業を展開。健康、ダイエット、人生の質を高めるためのサポートを行う。", tag: "FITNESS" },
-  ];
-  return (
-    <section data-screen-label="03 Roles" id="roles" style={{ background: "var(--bg-2)" }}>
-      <div className="wrap">
-        <div style={{ marginBottom: 64 }}>
-          <Kicker num="03">Roles & Activities</Kicker>
-          <h2 className="sec-title" style={{ marginTop: 24 }}>
-            事業家。コーチ。国際活動家。<br />そして、<em>人を動かす</em>表現者。
-          </h2>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 1, background: "var(--line-strong)", border: "1px solid var(--line-strong)" }} className="roles-grid">
-          {roles.map((r) => (
-            <article key={r.n} style={{ background: "var(--bg)", padding: "44px 40px", display: "flex", flexDirection: "column", gap: 20 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-                <div className="mono" style={{ color: "var(--accent)" }}>{r.n}</div>
-                <div className="mono" style={{ color: "var(--muted)" }}>{r.tag}</div>
-              </div>
-              <div>
-                <div style={{ fontSize: 22, fontWeight: 700, lineHeight: 1.4, marginBottom: 14 }}>{r.jp}</div>
-                <div className="eng" style={{ fontSize: 13, color: "var(--muted)", letterSpacing: "0.02em", lineHeight: 1.6 }}>{r.en}</div>
-              </div>
-              <p style={{ fontSize: 14.5, lineHeight: 1.85, color: "var(--fg-2)", margin: 0 }}>{r.body}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-      <style>{`@media (max-width: 880px) { .roles-grid { grid-template-columns: 1fr !important; } }`}</style>
-    </section>
-  );
-};
-
-/* ─────────────────────────────────────────────
-   TURNING POINT — 人生が変わった日。
-───────────────────────────────────────────── */
-const TurningPoint = () => (
-  <section data-screen-label="TP Turning Point" id="turning-point" style={{ background: "linear-gradient(180deg, #0E0E0C 0%, #14130F 100%)", color: "var(--invert-fg)", padding: "180px 0", position: "relative", overflow: "hidden" }}>
-    <div style={{ position: "absolute", left: 0, right: 0, top: "38%", height: 1, background: "linear-gradient(90deg, transparent, rgba(244,241,234,0.18), transparent)" }} />
-    <div className="wrap-narrow">
-      <div className="kicker" style={{ color: "var(--invert-muted)", marginBottom: 64 }}>
-        <span className="dot"></span>
-        <span style={{ marginRight: 14, fontFamily: "var(--mono)", color: "var(--accent)" }}>—</span>
-        A day that changed everything
-      </div>
-
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }} className="tp-grid">
-        <div>
-          <div className="mono" style={{ color: "var(--accent)", marginBottom: 20, fontSize: 12 }}>DEC 03 / 2024 · BOHOL, PHILIPPINES</div>
-          <h2 style={{ fontSize: "clamp(40px, 6.4vw, 88px)", lineHeight: 1.15, fontWeight: 700, margin: "0 0 32px 0", textWrap: "balance" }}>
-            人生が、<br /><span style={{ fontFamily: "var(--serif)", fontWeight: 500, color: "var(--accent)" }}>変わった日。</span>
-          </h2>
-          <p className="serif" style={{ fontSize: 17, lineHeight: 2, color: "rgba(244,241,234,0.7)", margin: 0 }}>
-            人は、いつ死ぬかわからない。<br />
-            だからこそ、自分らしく生きることを<br />
-            後回しにしてはいけない。
-          </p>
-        </div>
-        <div><ImgPh label="DAWN — Bohol coast, the morning after" ratio="3/4" invert corner="—" /></div>
-      </div>
-
-      <div style={{ marginTop: 120, display: "grid", gridTemplateColumns: "120px 1fr", gap: 0 }} className="tp-story">
-        {[
-          { mark: "00:00", time: "事故発生", body: "2024年12月3日。\nフィリピンで、バイクの交通事故に遭いました。" },
-          { mark: "+48h", time: "意識不明", body: "2日間、意識不明。" },
-          { mark: "覚醒", time: "現地病院にて", body: "目を覚ますと、\nフィリピンの私立病院でした。" },
-          { mark: "退院", time: "現地医師の診断", body: "現地の医師からは、\n「問題ない。帰っていい」\nと言われました。" },
-          { mark: "帰国", time: "日本・大学病院", body: "しかし、帰国後に日本の大学病院でMRI検査を受けると、\n肋骨9本の骨折と脳内出血が見つかりました。" },
-          { mark: "問い", time: "—", body: "あの時、何が「問題なかった」のか。\n今でも聞いてみたいと思っています。", italic: true },
-        ].map((row, i) => (
-          <Fragment key={i}>
-            <div style={{ padding: "32px 0", borderTop: i === 0 ? "1px solid var(--invert-line)" : "none", borderBottom: "1px solid var(--invert-line)", fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.15em", color: "var(--accent)", textTransform: "uppercase" }}>
-              <div>{row.mark}</div>
-              <div style={{ color: "var(--invert-muted)", marginTop: 6, fontSize: 10 }}>{row.time}</div>
-            </div>
-            <div style={{ padding: "32px 0 32px 32px", borderTop: i === 0 ? "1px solid var(--invert-line)" : "none", borderBottom: "1px solid var(--invert-line)", fontSize: row.italic ? 17 : 16, lineHeight: 1.95, color: row.italic ? "rgba(244,241,234,0.65)" : "rgba(244,241,234,0.92)", fontFamily: row.italic ? "var(--serif)" : "inherit", whiteSpace: "pre-line" }}>
-              {row.body}
-            </div>
-          </Fragment>
-        ))}
-      </div>
-
-      <div style={{ marginTop: 140, textAlign: "center" }}>
-        <div className="mono" style={{ color: "var(--invert-muted)", marginBottom: 32 }}>AND THEN —</div>
-        <p style={{ fontFamily: "var(--serif)", fontSize: "clamp(22px, 2.4vw, 32px)", lineHeight: 1.9, color: "var(--invert-fg)", margin: "0 0 56px 0", textWrap: "balance" }}>
-          でも、その事故が<br />教えてくれたことがあります。
-        </p>
-        <div style={{ display: "inline-block", padding: "40px 56px", borderTop: "1px solid var(--accent)", borderBottom: "1px solid var(--accent)" }}>
-          <div className="mono" style={{ color: "var(--accent)", marginBottom: 16, fontSize: 11 }}>WHAT IT TAUGHT ME</div>
-          <p style={{ fontFamily: "var(--serif)", fontSize: "clamp(28px, 3.6vw, 48px)", lineHeight: 1.5, margin: 0, color: "var(--invert-fg)", fontWeight: 500 }}>
-            人は、<br />いつ死ぬか<br />わからない。
-          </p>
-        </div>
-        <p style={{ marginTop: 64, fontSize: 16, lineHeight: 2.1, color: "rgba(244,241,234,0.85)", maxWidth: "44ch", marginLeft: "auto", marginRight: "auto" }}>
-          だからこそ、<br />自分らしく生きることを後回しにしてはいけない。<br /><br />
-          誰かの可能性に火をつけたい。<br />迷っている人の背中を押せる人になりたい。
-        </p>
-        <p style={{ marginTop: 56, paddingTop: 40, borderTop: "1px solid var(--invert-line)", maxWidth: "48ch", marginLeft: "auto", marginRight: "auto", fontSize: 14, lineHeight: 2, color: "var(--invert-muted)" }}>
-          古賀久達の人生理念は、<br />この事故をきっかけに、より強く、はっきりと形になりました。
-        </p>
-      </div>
-    </div>
-    <style>{`
-      @media (max-width: 880px) {
-        .tp-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
-        .tp-story { grid-template-columns: 80px 1fr !important; }
-      }
-    `}</style>
-  </section>
-);
-
-/* ─────────────────────────────────────────────
-   04. PHILOSOPHY
-───────────────────────────────────────────── */
-const Philosophy = () => (
-  <section data-screen-label="04 Philosophy" id="philosophy" style={{ background: "var(--invert-bg)", color: "var(--invert-fg)", padding: "160px 0" }}>
-    <div className="wrap-narrow">
-      <div style={{ marginBottom: 56 }}>
-        <div className="kicker" style={{ color: "var(--invert-muted)" }}>
-          <span className="dot"></span>
-          <span style={{ marginRight: 14, fontFamily: "var(--mono)", color: "var(--accent)" }}>04</span>
-          Philosophy
-        </div>
-      </div>
-      <h2 style={{ fontSize: "clamp(36px, 5.6vw, 76px)", lineHeight: 1.2, fontWeight: 700, margin: "0 0 64px 0", letterSpacing: "0.005em", textWrap: "balance" }}>
-        圧倒的な<span style={{ fontFamily: "var(--serif)", fontWeight: 500, color: "var(--accent)" }}>キャラ売り</span>で、<br />自分らしく生きる。
-      </h2>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64 }} className="phil-grid">
-        <div style={{ fontSize: 16, lineHeight: 2, color: "rgba(244,241,234,0.85)" }}>
-          <p style={{ margin: "0 0 1.5em 0" }}>人は、完璧だから選ばれるのではありません。その人にしかない経験、言葉、表情、熱量、失敗、違和感。そういう"人間らしさ"に、人は惹かれます。</p>
-          <p style={{ margin: "0 0 1.5em 0" }}>古賀久達が大切にしているのは、自分を大きく見せることではなく、自分らしさを隠さず、価値に変えること。</p>
-        </div>
-        <div style={{ fontSize: 16, lineHeight: 2, color: "rgba(244,241,234,0.85)" }}>
-          <p style={{ margin: "0 0 1.5em 0" }}>圧倒的なキャラ売りとは、無理にキャラクターを作ることではありません。本来持っている個性を見つけ、磨き、伝わる形にすることです。</p>
-          <p style={{ margin: "0 0 1.5em 0" }}>AIの時代だからこそ、整った情報よりも、その人にしか出せない<em style={{ color: "var(--accent)", fontStyle: "normal", fontFamily: "var(--serif)" }}>"人間味"</em>が武器になる。</p>
-        </div>
-      </div>
-      <div style={{ marginTop: 80, paddingTop: 40, borderTop: "1px solid var(--invert-line)", fontFamily: "var(--serif)", fontSize: 22, lineHeight: 1.9, textAlign: "center" }}>
-        自分らしく生きる人を増やす。<br />
-        自分のキャラクターで勝負できる人を増やす。<br />
-        <span style={{ color: "var(--accent)" }}>— それが、古賀久達の考え方です。</span>
-      </div>
-    </div>
-    <style>{`@media (max-width: 880px) { .phil-grid { grid-template-columns: 1fr !important; gap: 24px !important; } }`}</style>
-  </section>
-);
-
-/* ─────────────────────────────────────────────
-   REDEFINITION — 売り物の再定義
-───────────────────────────────────────────── */
-const Redefinition = () => {
-  const triplets = [
-    { not: "動画", yes: "その人の魅力が伝わる瞬間" },
-    { not: "コーチング", yes: "自分らしく動き出せるきっかけ" },
-    { not: "セミナー", yes: "人が動き出す場" },
-  ];
-  return (
-    <section data-screen-label="RD Redefinition" id="redefinition" style={{ background: "var(--invert-bg)", color: "var(--invert-fg)", padding: "180px 0", position: "relative", overflow: "hidden" }}>
-      <div className="wrap-narrow">
-        <div className="kicker" style={{ color: "var(--invert-muted)", marginBottom: 56 }}>
-          <span className="dot"></span>
-          <span style={{ marginRight: 14, fontFamily: "var(--mono)", color: "var(--accent)" }}>—</span>
-          What we actually sell
-        </div>
-        <h2 style={{ fontSize: "clamp(36px, 5.6vw, 76px)", lineHeight: 1.25, fontWeight: 700, margin: "0 0 32px 0", letterSpacing: "0.005em", textWrap: "balance" }}>
-          売っているのは、<br />サービスではなく<br /><span style={{ fontFamily: "var(--serif)", fontWeight: 500, color: "var(--accent)" }}>"状態"</span>。
-        </h2>
-        <div style={{ fontFamily: "var(--serif)", fontSize: 19, lineHeight: 2.1, color: "rgba(244,241,234,0.78)", maxWidth: "44ch", margin: "0 0 120px 0" }}>
-          古賀久達が提供しているものは、<br />単なる動画制作ではありません。<br /><br />
-          人の魅力が、<br />ちゃんと伝わる<em style={{ color: "var(--accent)", fontStyle: "normal" }}>状態</em>をつくること。<br /><br />
-          単なるコーチングではありません。<br /><br />
-          その人が、<br />自分らしく動き出せる<em style={{ color: "var(--accent)", fontStyle: "normal" }}>状態</em>をつくること。<br /><br />
-          単なるセミナーではありません。<br /><br />
-          人間力とコミュニケーション力に火がつき、<br />明日からの行動が変わる<em style={{ color: "var(--accent)", fontStyle: "normal" }}>場</em>をつくること。
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 80 }}>
-          {triplets.map((t, i) => (
-            <div key={i} style={{ borderTop: "1px solid var(--invert-line)", paddingTop: 40 }}>
-              <div className="mono" style={{ color: "var(--accent)", marginBottom: 32, fontSize: 11 }}>{String(i + 1).padStart(2, "0")} / OF THREE</div>
-              <p style={{ fontSize: "clamp(24px, 3.2vw, 40px)", lineHeight: 1.45, fontWeight: 600, margin: "0 0 24px 0", color: "rgba(244,241,234,0.45)", textDecoration: "line-through", textDecorationColor: "rgba(244,241,234,0.25)", textDecorationThickness: "1px" }}>
-                売っているのは、{t.not}ではありません。
-              </p>
-              <p style={{ fontSize: "clamp(28px, 4.4vw, 56px)", lineHeight: 1.35, fontWeight: 700, margin: 0, color: "var(--invert-fg)", letterSpacing: "0.005em", textWrap: "balance" }}>
-                売っているのは、<br /><span style={{ fontFamily: "var(--serif)", fontWeight: 500, color: "var(--accent)" }}>{t.yes}</span>です。
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div style={{ marginTop: 120, paddingTop: 56, borderTop: "1px solid var(--invert-line)", fontFamily: "var(--serif)", fontSize: 18, lineHeight: 2.1, color: "rgba(244,241,234,0.78)", maxWidth: "48ch" }}>
-          動画も、コーチングも、セミナーも、<br />すべては手段です。<br /><br />
-          本当に届けたいのは、<br />その人の中にある可能性が、<br />まわりに伝わり、動き出す<em style={{ color: "var(--accent)", fontStyle: "normal" }}>瞬間</em>です。
-        </div>
-
-        <div style={{ marginTop: 140, textAlign: "center", paddingTop: 56, borderTop: "1px solid var(--accent)" }}>
-          <div className="mono" style={{ color: "var(--accent)", marginBottom: 40, fontSize: 11 }}>— IN THE END —</div>
-          <p style={{ fontFamily: "var(--serif)", fontSize: "clamp(28px, 4vw, 52px)", lineHeight: 1.5, fontWeight: 500, margin: 0, color: "var(--invert-fg)", textWrap: "balance" }}>
-            すべては、<br /><span style={{ color: "var(--accent)" }}>人の可能性に火をつける</span>ために。
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-/* ─────────────────────────────────────────────
-   05. AI ERA
-───────────────────────────────────────────── */
-const AIEra = () => (
-  <section data-screen-label="05 AI Era">
-    <div className="wrap">
-      <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 80, alignItems: "center" }} className="two-col">
-        <div>
-          <Kicker num="05">AI Era</Kicker>
-          <h2 className="sec-title" style={{ marginTop: 24 }}>
-            AIの時代だからこそ、<br />最後に残るのは<em>「人」</em>だ。
-          </h2>
-          <div className="sec-body">
-            <p>テクノロジーは進化し、AIは多くの仕事を効率化していきます。しかし、人が人を信じる理由。人が商品を買う理由。人が誰かについていきたいと思う理由。</p>
-            <p>その中心には、いつの時代も「人間力」があります。</p>
-            <p>古賀久達が大切にしているのは、知識だけではなく、<strong>行動する力</strong>。正しさだけではなく、<strong>伝える力</strong>。仕組みだけではなく、<strong>人を巻き込む力</strong>。</p>
-            <p>人の可能性に火をつける。それは、目の前の一人の人生を変え、企業を変え、地域を変え、世界へ広がっていく力だと信じています。</p>
-          </div>
-        </div>
-        <div><ImgPh label="ON-SITE — coaching session, Saga" ratio="4/5" corner="DOC / 02" /></div>
-      </div>
-    </div>
-  </section>
-);
-
-/* ─────────────────────────────────────────────
-   06. SERVICES
-───────────────────────────────────────────── */
-const Services = () => {
-  const items = [
-    { n: "01", t: "キャラ売りブランディング支援", en: "Personal Character Branding", lead: ""この人だから選ばれる"を、つくる。", body: "経営者・個人事業主・リーダー・店舗オーナーの個性を整理し、伝わる形に変換します。見た目だけのブランディングではなく、経験、考え方、話し方、価値観、失敗談、熱量まで含めて、SNS・動画・LP・営業資料に落とし込みます。", tags: ["個性の棚卸し", "言語化", "発信導線"] },
-    { n: "02", t: "人間力コーチング", en: "Human Capacity Coaching", lead: "AIには代替されない、"人を動かす力"を磨く。", body: "経営者・リーダー・若手に対して、人間力・関係構築力・行動力・自己決定力を高める1on1コーチング。話して終わりではなく、「明日から何をするか」まで一緒に決める、行動に変わる対話を提供します。", tags: ["1on1", "意思決定", "行動変容"] },
-    { n: "03", t: "コミュニケーション研修・セミナー", en: "Communication Training & Talks", lead: "YES, AND で広がる、人が動く対話術。", body: "アメリカ式コミュニケーション理論をベースに、否定から入らない「YES/AND」、承認から広げる対話、人が動く伝え方を体系的に学べる研修・セミナー。社員研修、リーダー育成、若手向け、経営者向けと、対象に合わせて設計します。", tags: ["YES, AND", "承認", "AI時代の人間力"] },
-    { n: "04", t: "動画制作・SNS運用サポート", en: "Short-form Video & SNS Support", lead: "ただ撮るのではなく、魅力を引き出して発信する。", body: "経営者・企業の魅力を引き出し、ショート動画・リール・SNSコンテンツに翻訳。バズらせることが目的ではなく、採用・営業・信頼・売上につながる発信を企画から運用まで設計。台本・撮影・編集・運用までワンストップで伴走します。", tags: ["ショート動画", "採用・営業", "運用設計"] },
-    { n: "05", t: "経営者・企業PRサポート", en: "Founder & Corporate PR", lead: "社長の想いが、伝わっていますか？", body: "「想いはあるのに伝わっていない会社」「他社と差別化できていない会社」のために、社長と企業の本質を言語化し、動画・SNS・LP・採用資料・営業資料に落とし込みます。社内外に届くPR設計を、経営目線で伴走します。", tags: ["経営者PR", "採用広報", "差別化"] },
-    { n: "06", t: "事業開発・マネタイズ壁打ち", en: "Business & Monetization Sparring", lead: "アイデアを、ちゃんと事業に変える。", body: "新規事業、地域ビジネス、海外展開、NPO活動、コミュニティ形成。複数の視点から事業の方向性を整理し、優先順位とマネタイズの道筋を一緒に設計します。アイデアが多くて動けない経営者のための、外部CSO的な壁打ち。", tags: ["新規事業", "整理", "収益設計"] },
-  ];
-  return (
-    <section data-screen-label="06 Services" id="services">
-      <div className="wrap">
-        <div style={{ display: "grid", gridTemplateColumns: "0.4fr 1fr", gap: 48, marginBottom: 64 }} className="two-col">
-          <div><Kicker num="06">Services</Kicker></div>
-          <div>
-            <h2 className="sec-title">あなたの<em>魅力</em>を、<br />選ばれる理由に変える。</h2>
-            <p style={{ fontSize: 16, lineHeight: 1.95, color: "var(--fg-2)", maxWidth: "60ch", margin: 0 }}>
-              売り込みではなく、引き出すこと。整えるのではなく、にじみ出させること。<br />
-              古賀久達のサービスは、すべて「あなたが、あなたのまま選ばれる」ためにあります。
-            </p>
-          </div>
-        </div>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 1, background: "var(--line-strong)", border: "1px solid var(--line-strong)", borderBottom: "none" }} className="svc-top">
-          {items.slice(0, 2).map((s) => (
-            <article key={s.n} style={{ background: "var(--bg)", padding: "48px 40px", display: "flex", flexDirection: "column", gap: 18, minHeight: 380 }}>
-              <div className="mono" style={{ color: "var(--accent)", fontSize: 12 }}>SERVICE / {s.n}</div>
-              <div>
-                <div style={{ fontSize: 24, fontWeight: 700, lineHeight: 1.4, marginBottom: 8 }}>{s.t}</div>
-                <div className="eng" style={{ fontSize: 12, color: "var(--muted)", letterSpacing: "0.04em" }}>{s.en}</div>
-              </div>
-              <p className="serif" style={{ fontSize: 18, color: "var(--accent)", margin: 0, lineHeight: 1.6 }}>{s.lead}</p>
-              <p style={{ fontSize: 14, lineHeight: 1.9, color: "var(--fg-2)", margin: 0, flex: 1 }}>{s.body}</p>
-              <div style={{ display: "flex", gap: 6, flexWrap: "wrap", paddingTop: 14, borderTop: "1px dashed var(--line)" }}>
-                {s.tags.map((tag) => <span key={tag} style={{ fontSize: 11, padding: "4px 10px", border: "1px solid var(--line-strong)", color: "var(--fg-2)" }}>{tag}</span>)}
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 1, background: "var(--line-strong)", border: "1px solid var(--line-strong)" }} className="svc-grid">
-          {items.slice(2).map((s) => (
-            <article key={s.n} style={{ background: "var(--bg)", padding: "40px 32px", display: "flex", flexDirection: "column", gap: 16, minHeight: 380 }}>
-              <div className="mono" style={{ color: "var(--accent)", fontSize: 12 }}>SERVICE / {s.n}</div>
-              <div>
-                <div style={{ fontSize: 19, fontWeight: 700, lineHeight: 1.45, marginBottom: 8 }}>{s.t}</div>
-                <div className="eng" style={{ fontSize: 11.5, color: "var(--muted)", letterSpacing: "0.04em" }}>{s.en}</div>
-              </div>
-              <p className="serif" style={{ fontSize: 15.5, color: "var(--accent)", margin: 0, lineHeight: 1.6 }}>{s.lead}</p>
-              <p style={{ fontSize: 13.5, lineHeight: 1.85, color: "var(--fg-2)", margin: 0, flex: 1 }}>{s.body}</p>
-              <div style={{ display: "flex", gap: 6, flexWrap: "wrap", paddingTop: 12, borderTop: "1px dashed var(--line)" }}>
-                {s.tags.map((tag) => <span key={tag} style={{ fontSize: 11, padding: "4px 10px", border: "1px solid var(--line-strong)", color: "var(--fg-2)" }}>{tag}</span>)}
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div style={{ marginTop: 56, padding: "32px 40px", background: "var(--bg-2)", borderLeft: "3px solid var(--accent)", display: "grid", gridTemplateColumns: "1fr auto", gap: 32, alignItems: "center" }} className="svc-nudge">
-          <div>
-            <div className="mono" style={{ color: "var(--accent)", marginBottom: 8 }}>HOW WE START</div>
-            <p style={{ fontSize: 16, lineHeight: 1.85, margin: 0, color: "var(--fg)" }}>
-              いきなり契約ではなく、まずは <strong>30分の壁打ち</strong>から。<br />
-              話してみて、合いそうなら、合うサービスを一緒に決めます。
-            </p>
-          </div>
-          <a href="#contact" className="btn">壁打ちを申し込む <span className="arrow">→</span></a>
-        </div>
-      </div>
-      <style>{`
-        @media (max-width: 980px) {
-          .svc-top { grid-template-columns: 1fr !important; }
-          .svc-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .svc-nudge { grid-template-columns: 1fr !important; }
-        }
-        @media (max-width: 640px) { .svc-grid { grid-template-columns: 1fr !important; } }
-      `}</style>
-    </section>
-  );
-};
-
-/* ─────────────────────────────────────────────
-   EASY ENTRY — こんな相談からで大丈夫です
-───────────────────────────────────────────── */
-const EasyEntry = () => {
-  const examples = [
-    "自分の強みを整理したい",
-    "会社の魅力を言葉にしたい",
-    "動画やSNSを始めたいけど、何を出せばいいかわからない",
-    "社員にもっと伝わる話し方を学ばせたい",
-    "自分らしいキャラクターで選ばれるようになりたい",
-  ];
-  return (
-    <section data-screen-label="EE Easy Entry" id="easy-entry">
-      <div className="wrap">
-        <div style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 64, alignItems: "start" }} className="two-col">
-          <div>
-            <Kicker num="—">Easy entry</Kicker>
-            <h2 className="sec-title" style={{ marginTop: 24 }}>こんな相談から<br /><em>で大丈夫です。</em></h2>
-            <p style={{ fontSize: 16, lineHeight: 1.95, color: "var(--fg-2)", maxWidth: "44ch" }}>
-              まだ、何を頼めばいいか決まっていなくても大丈夫です。<br />
-              まとまっていない状態から火をつけるのが、古賀久達の役割です。
-            </p>
-            <a href="#contact" className="btn" style={{ marginTop: 24 }}>まずは話してみる <span className="arrow">→</span></a>
-          </div>
-          <div>
-            <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-              {examples.map((e, i) => (
-                <li key={i} style={{ display: "flex", gap: 24, alignItems: "baseline", padding: "24px 8px", borderTop: i === 0 ? "1px solid var(--line)" : "none", borderBottom: "1px solid var(--line)" }}>
-                  <span className="mono" style={{ color: "var(--accent)", minWidth: 36 }}>—</span>
-                  <span className="serif" style={{ fontSize: 18, lineHeight: 1.7 }}>{e}</span>
-                </li>
-              ))}
-            </ul>
-            <p style={{ marginTop: 32, fontSize: 14, lineHeight: 1.95, color: "var(--muted)", paddingLeft: 60 }}>
-              そんな、まだ形になっていない相談から、一緒に整理します。<br />最初から完璧な相談でなくていい。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-/* ─────────────────────────────────────────────
-   07. STRENGTHS
-───────────────────────────────────────────── */
-const Strengths = () => {
-  const items = [
-    { n: "01", t: "実践しているから語れる", body: "ジム経営、SNS運用、NPO活動、海外法人、不動産開発。机上の理論ではなく、自ら事業を動かしてきた実践知があります。" },
-    { n: "02", t: "人の魅力を見つける力", body: "企業や人の中に眠っている強み、想い、ストーリーを見つけ、伝わる言葉に変えることを得意としています。" },
-    { n: "03", t: "地域と世界をつなぐ視点", body: "佐賀という地域に根ざしながら、フィリピンをはじめとする海外との接点を持ち、ローカルとグローバルをつなぎます。" },
-    { n: "04", t: "行動に変えるコミュニケーション", body: "話して終わりではなく、次に何をするかまで整理。人が動き出すための言葉と仕組みを設計します。" },
-    { n: "05", t: "SNS・動画時代の発信設計", body: "ショート動画、SNS広告、企業PR、採用動画など、現代に合った発信の形に落とし込めます。" },
-    { n: "06", t: "熱量と現実性のバランス", body: "夢を語るだけではなく、売上・導線・人材・運用まで考える。情熱と経営の両方を大切にしています。" },
-  ];
-  return (
-    <section data-screen-label="07 Strengths" id="strengths" style={{ background: "var(--bg-2)" }}>
-      <div className="wrap">
-        <div style={{ marginBottom: 64 }}>
-          <Kicker num="07">Strengths</Kicker>
-          <h2 className="sec-title" style={{ marginTop: 24 }}>現場で動き、言葉にし、<br /><em>人を巻き込む。</em></h2>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }} className="str-grid">
-          {items.map((s) => (
-            <div key={s.n} style={{ background: "var(--bg)", padding: "36px 28px", borderTop: "2px solid var(--accent)" }}>
-              <div className="mono" style={{ color: "var(--muted)", marginBottom: 18 }}>{s.n}</div>
-              <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 12, lineHeight: 1.5 }}>{s.t}</div>
-              <p style={{ fontSize: 13.5, lineHeight: 1.85, color: "var(--fg-2)", margin: 0 }}>{s.body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      <style>{`
-        @media (max-width: 980px) { .str-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-        @media (max-width: 640px) { .str-grid { grid-template-columns: 1fr !important; } }
-      `}</style>
-    </section>
-  );
-};
-
-/* ─────────────────────────────────────────────
-   NOT JUST STARS
-───────────────────────────────────────────── */
-const NotJustStars = () => (
-  <section data-screen-label="NS Not Just Stars" style={{ background: "var(--bg-2)" }}>
-    <div className="wrap-narrow">
-      <Kicker num="—">For everyone with a flame</Kicker>
-      <h2 className="sec-title" style={{ marginTop: 24, textWrap: "balance" }}>
-        すごい人だけを<br /><em>応援したいわけではありません。</em>
-      </h2>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 0, margin: "48px 0 40px 0", borderTop: "1px solid var(--line)" }}>
-        {["まだ何者でもない人。", "自分の魅力に気づいていない人。", "何か始めたいけど、言葉にできていない人。"].map((line, i) => (
-          <div key={i} style={{ padding: "28px 0", borderBottom: "1px solid var(--line)", fontFamily: "var(--serif)", fontSize: "clamp(22px, 2.6vw, 32px)", lineHeight: 1.6, color: "var(--fg)" }}>
-            <span className="mono" style={{ color: "var(--accent)", marginRight: 20, fontSize: 11, verticalAlign: "middle" }}>{String(i + 1).padStart(2, "0")}</span>
-            {line}
-          </div>
-        ))}
-      </div>
-      <p style={{ fontSize: 17, lineHeight: 2, color: "var(--fg-2)", maxWidth: "48ch" }}>
-        そういう人の中にある<em style={{ color: "var(--accent)", fontStyle: "normal", fontFamily: "var(--serif)" }}>火種</em>を見つけることが、<br />古賀久達の仕事です。
-      </p>
-    </div>
-  </section>
-);
-
-/* ─────────────────────────────────────────────
-   08. CHECKLIST
-───────────────────────────────────────────── */
-const Checklist = () => {
-  const items = [
-    "会社の魅力がうまく伝わっていない",
-    "社長の想いや人柄をもっと発信したい",
-    "SNSや動画を活用したいが、何を出せばいいかわからない",
-    "採用や営業で他社との差別化に悩んでいる",
-    "自分自身のキャラクターや強みを発信したい",
-    "新規事業のアイデアはあるが、整理できていない",
-    "自分自身の強みや商品設計を見直したい",
-    "海外展開や国際交流に興味がある",
-    "社員や若者の人間力・コミュニケーション力を高めたい",
-    "地域の可能性をもっと発信したい",
-    "とにかく一歩踏み出すための壁打ち相手がほしい",
-  ];
-  return (
-    <section data-screen-label="08 Checklist" id="checklist">
-      <div className="wrap">
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 64, alignItems: "start" }} className="two-col">
-          <div style={{ position: "sticky", top: 100 }}>
-            <Kicker num="08">For You</Kicker>
-            <h2 className="sec-title" style={{ marginTop: 24 }}>こんな方は、<br /><em>一度ご相談ください。</em></h2>
-            <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.8 }}>一つでも当てはまれば、<br />30分の壁打ちから始めましょう。</p>
-          </div>
-          <div>
-            <ul style={{ listStyle: "none", margin: 0, padding: 0, borderTop: "1px solid var(--line)" }}>
-              {items.map((it, i) => (
-                <li key={i} style={{ display: "flex", gap: 20, alignItems: "baseline", padding: "20px 4px", borderBottom: "1px solid var(--line)" }}>
-                  <span className="mono" style={{ color: "var(--accent)", minWidth: 32 }}>{String(i + 1).padStart(2, "0")}</span>
-                  <span style={{ fontSize: 16, lineHeight: 1.6 }}>{it}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-/* ─────────────────────────────────────────────
-   09. ACTIVITIES
-───────────────────────────────────────────── */
-const Activities = () => {
-  const items = [
-    "株式会社Ma 代表取締役", "パーソナルジム Make & Space 運営",
-    "女性向けフィットネス・ダイエット事業", "SNSコンサルティング",
-    "企業PR・採用支援", "経営者ブランディング", "キャラ売りブランディング",
-    "コーチング・人材育成", "NPO法人グローバルブリッジ 理事長",
-    "国際交流・教育支援活動", "ボランティア活動",
-    "フィリピン・ボホール島での不動産開発", "Bohol Sunset Properties Inc. 代表",
-    "佐賀を拠点とした地域活性化活動",
-  ];
-  return (
-    <section data-screen-label="09 Activities" id="activities" style={{ background: "var(--invert-bg)", color: "var(--invert-fg)", padding: "120px 0" }}>
-      <div className="wrap">
-        <div className="kicker" style={{ color: "var(--invert-muted)" }}>
-          <span className="dot"></span>
-          <span style={{ marginRight: 14, fontFamily: "var(--mono)", color: "var(--accent)" }}>09</span>
-          Activities
-        </div>
-        <h2 style={{ fontSize: "clamp(40px, 6vw, 92px)", fontWeight: 700, margin: "24px 0 56px 0", lineHeight: 1.1, fontFamily: "var(--eng)", letterSpacing: "-0.02em" }}>
-          Activities.
-        </h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1px 64px", borderTop: "1px solid var(--invert-line)" }} className="act-grid">
-          {items.map((it, i) => (
-            <div key={i} style={{ display: "flex", gap: 20, padding: "18px 0", borderBottom: "1px solid var(--invert-line)" }}>
-              <span className="mono" style={{ color: "var(--accent)", minWidth: 32 }}>{String(i + 1).padStart(2, "0")}</span>
-              <span style={{ fontSize: 15, lineHeight: 1.5 }}>{it}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <style>{`@media (max-width: 720px) { .act-grid { grid-template-columns: 1fr !important; } }`}</style>
-    </section>
-  );
-};
-
-/* ─────────────────────────────────────────────
-   10/11. PROFILE
-───────────────────────────────────────────── */
-const Profile = () => (
-  <section data-screen-label="10 Profile" id="profile">
-    <div className="wrap">
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 64, alignItems: "start" }} className="two-col">
-        <div>
-          <ImgPh label="PORTRAIT — Profile, monochrome" ratio="3/4" corner="PROFILE" />
-          <div style={{ marginTop: 24, fontFamily: "var(--mono)", fontSize: 11, color: "var(--muted)", lineHeight: 1.8 }}>
-            BORN / SAGA, JAPAN<br />BASE / SAGA · BOHOL<br />FIELD / BUSINESS · NPO · OVERSEAS
-          </div>
-        </div>
-        <div>
-          <Kicker num="10">Profile</Kicker>
-          <h2 className="sec-title" style={{ marginTop: 24 }}>
-            古賀 久達<br />
-            <span className="eng" style={{ fontSize: "0.55em", fontWeight: 500, color: "var(--muted)", letterSpacing: "0.05em" }}>Hisamichi Koga</span>
-          </h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 32, fontSize: 14, lineHeight: 1.8 }}>
-            <div>株式会社Ma <strong>代表取締役</strong></div>
-            <div>NPO法人グローバルブリッジ <strong>理事長</strong></div>
-            <div>Bohol Sunset Properties Inc. <strong>代表</strong></div>
-          </div>
-          <div className="sec-body">
-            <p>佐賀県佐賀市を拠点に、パーソナルジム運営、SNSコンサルティング、企業PR、コーチング、経営者ブランディング支援を行う。</p>
-            <p>また、フィリピン・ボホール島にて不動産開発・賃貸事業を展開し、海外での事業づくりにも挑戦。</p>
-            <p>NPO活動では、国際交流、教育支援、地域活性化、ボランティア活動をテーマに、日本と海外をつなぐ活動を推進している。</p>
-          </div>
-          <div style={{ marginTop: 40, padding: "32px 32px", background: "var(--bg-2)", borderLeft: "3px solid var(--accent)", fontFamily: "var(--serif)", fontSize: 17, lineHeight: 2 }}>
-            自身の軸は、<br />
-            <span style={{ fontSize: 22, color: "var(--accent)" }}>「人の可能性に火をつける」</span><br />
-            そして、<br />
-            <span style={{ fontSize: 22, color: "var(--accent)" }}>「圧倒的なキャラ売りで、自分らしく生きる」</span>
-          </div>
-
-          <div style={{ marginTop: 64, paddingTop: 40, borderTop: "1px solid var(--line)" }}>
-            <Kicker num="11">English Profile</Kicker>
-            <h3 className="eng" style={{ fontSize: 32, fontWeight: 700, margin: "16px 0 8px 0", letterSpacing: "-0.01em" }}>Hisamichi Koga</h3>
-            <div className="eng" style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.8, marginBottom: 24 }}>
-              CEO / Representative Director, Ma Inc.<br />
-              Chairperson, Global Bridge NPO<br />
-              President, Bohol Sunset Properties Inc.
-            </div>
-            <div className="eng" style={{ fontSize: 14, lineHeight: 1.85, color: "var(--fg-2)" }}>
-              <p style={{ margin: "0 0 1.4em 0" }}>Based in Saga, Japan, Hisamichi Koga is an entrepreneur, coach, and community leader working across fitness, branding, SNS consulting, nonprofit activities, and international business.</p>
-              <p style={{ margin: "0 0 1.4em 0" }}>He operates fitness and wellness businesses, supports companies and leaders through branding and communication strategies, and leads Global Bridge NPO to promote international exchange, education, volunteer work, and community development.</p>
-              <p style={{ margin: "0 0 1.4em 0" }}>He also serves as President of Bohol Sunset Properties Inc. in the Philippines, focusing on real estate development and property leasing in Bohol.</p>
-              <p className="serif" style={{ fontSize: 18, color: "var(--accent)", margin: "24px 0 8px 0" }}>To ignite human potential.</p>
-              <p style={{ margin: 0 }}>He believes in living authentically through powerful personal branding and helping others turn their individuality, experience, and human story into value.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-/* ─────────────────────────────────────────────
-   12. CONTACT
-───────────────────────────────────────────── */
-const Contact = () => (
-  <section data-screen-label="12 Contact" id="contact" style={{ background: "var(--bg-2)" }}>
-    <div className="wrap">
-      <div style={{ marginBottom: 56 }}>
-        <Kicker num="12">Contact</Kicker>
-        <h2 className="sec-title eng" style={{ marginTop: 24, fontFamily: "var(--eng)", letterSpacing: "-0.02em" }}>Contact.</h2>
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "var(--line-strong)", border: "1px solid var(--line-strong)" }} className="contact-grid">
-        <div style={{ background: "var(--bg)", padding: 40 }}>
-          <div className="mono" style={{ color: "var(--accent)", marginBottom: 20 }}>JAPAN / HEAD OFFICE</div>
-          <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>古賀 久達</div>
-          <div className="eng" style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.8, marginBottom: 24 }}>
-            Hisamichi Koga<br />CEO / Representative Director, Ma Inc.<br />Chairperson, Global Bridge NPO
-          </div>
-          <div style={{ fontSize: 14, lineHeight: 1.9 }}>
-            <strong>Japan Address</strong><br />
-            2-1-1 Ekimae-Chuo, Saga City, Saga 840-0801, Japan<br />Kitaguchi Building
-          </div>
-          <div style={{ marginTop: 32, paddingTop: 20, borderTop: "1px dashed var(--line)" }}>
-            <div className="mono" style={{ color: "var(--muted)", marginBottom: 8 }}>BUSINESS ACTIVITIES</div>
-            <div style={{ fontSize: 13, lineHeight: 1.8, color: "var(--fg-2)" }}>
-              Fitness Gym Management / SNS Consulting / Coaching / Volunteer Work / Real Estate Development & Property Leasing
-            </div>
-          </div>
-        </div>
-        <div style={{ background: "var(--bg)", padding: 40 }}>
-          <div className="mono" style={{ color: "var(--accent)", marginBottom: 20 }}>PHILIPPINES / OVERSEAS</div>
-          <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>Bohol Sunset Properties Inc.</div>
-          <div className="eng" style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.8, marginBottom: 24 }}>
-            President, Bohol Sunset Properties Inc.
-          </div>
-          <div style={{ fontSize: 14, lineHeight: 1.9 }}>
-            <strong>Philippines Area</strong><br />Tawala, Panglao<br />Bohol<br />Philippines
-          </div>
-          <div style={{ marginTop: 32, paddingTop: 20, borderTop: "1px dashed var(--line)" }}>
-            <div className="mono" style={{ color: "var(--muted)", marginBottom: 8 }}>FOCUS</div>
-            <div style={{ fontSize: 13, lineHeight: 1.8, color: "var(--fg-2)" }}>
-              Real estate development · Property leasing · Local employment · International bridge
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <style>{`@media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr !important; } }`}</style>
-  </section>
-);
-
-/* ─────────────────────────────────────────────
-   13. FINAL CTA
-───────────────────────────────────────────── */
-const FinalCTA = () => (
-  <section data-screen-label="13 Final CTA" style={{ background: "var(--invert-bg)", color: "var(--invert-fg)", padding: "160px 0" }}>
-    <div className="wrap-narrow" style={{ textAlign: "center" }}>
-      <div className="kicker" style={{ color: "var(--invert-muted)", justifyContent: "center" }}>
-        <span className="dot"></span>
-        <span style={{ marginRight: 14, fontFamily: "var(--mono)", color: "var(--accent)" }}>13</span>
-        Let's start
-      </div>
-      <h2 style={{ fontSize: "clamp(36px, 6vw, 88px)", fontWeight: 700, lineHeight: 1.2, margin: "32px 0 40px 0", textWrap: "balance" }}>
-        人の魅力は、<br />まだ<span style={{ fontFamily: "var(--serif)", fontWeight: 500, color: "var(--accent)" }}>眠っている</span>。<br />それを見つけ、伝え、動かす。
-      </h2>
-      <div style={{ fontSize: 16, lineHeight: 2.1, color: "rgba(244,241,234,0.78)", maxWidth: "44ch", margin: "0 auto 56px auto" }}>
-        会社の魅力。<br />社長の想い。<br />地域の可能性。<br />若者の未来。<br />海外とのつながり。<br />そして、自分らしく生きる力。<br /><br />
-        まだ形になっていないものを、<br />言葉にし、事業にし、行動に変えていく。
-      </div>
-      <p style={{ fontFamily: "var(--serif)", fontSize: 20, color: "var(--invert-fg)", margin: "0 0 56px 0", lineHeight: 1.8 }}>
-        古賀久達は、<br />あなたの中にある可能性に火をつけるパートナーです。
-      </p>
-      <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-        <a href="#contact" className="btn btn-invert">まずは話してみる <span className="arrow">→</span></a>
-        <a href="#contact" className="btn btn-invert-ghost">壁打ちをお願いする</a>
-        <a href="#contact" className="btn btn-invert-ghost">動画・SNSを相談する</a>
-        <a href="#contact" className="btn btn-invert-ghost">研修・セミナーを相談する</a>
-      </div>
-    </div>
-  </section>
-);
-
-/* ─────────────────────────────────────────────
-   NAV
-───────────────────────────────────────────── */
-const Nav = () => (
-  <nav className="nav">
-    <a href="#top" className="brand" style={{ textDecoration: "none", color: "inherit" }}>
-      <div className="brand-mark">M</div>
-      <div className="brand-text">
-        株式会社Ma
-        <small>HISAMICHI KOGA</small>
-      </div>
-    </a>
-    <div className="nav-links">
-      <a href="#about">About</a>
-      <a href="#roles">Roles</a>
-      <a href="#philosophy">Philosophy</a>
-      <a href="#services">Services</a>
-      <a href="#profile">Profile</a>
-      <a href="#contact" className="cta-mini keep">話してみる →</a>
-    </div>
-  </nav>
-);
-
-/* ─────────────────────────────────────────────
-   FOOTER
-───────────────────────────────────────────── */
-const Footer = () => (
-  <footer>
-    <div className="wrap">
+<!-- 02 ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="two-col two-col-40">
+      <div><div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">02</span>About</div></div>
       <div>
-        <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
-          <div style={{ width: 40, height: 40, background: "var(--invert-fg)", color: "var(--invert-bg)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--serif)", fontWeight: 600 }}>M</div>
-          <div>
-            <div style={{ fontSize: 14, fontWeight: 700 }}>株式会社Ma</div>
-            <div style={{ fontFamily: "var(--eng)", fontSize: 10, letterSpacing: "0.2em", color: "var(--invert-muted)", textTransform: "uppercase" }}>Ma Inc. / Saga, Japan</div>
-          </div>
+        <h2 class="sec-title">何者かではなく、<br><em>何を動かしてきたか。</em></h2>
+        <div class="sec-body">
+          <p>古賀久達は、株式会社Ma 代表取締役。佐賀を拠点に、フィットネス事業、企業PR、SNSコンサルティング、コーチング、動画を活用した人材・採用支援を行っています。</p>
+          <p>また、NPO法人グローバルブリッジ理事長として、国際交流・教育支援・地域活性化にも取り組み、フィリピンをはじめとする海外とのネットワークを活かした活動を展開。</p>
+          <p>さらに、フィリピン現地法人 Bohol Sunset Properties Inc. の代表として、ボホール島で不動産開発・賃貸事業にも挑戦しています。</p>
+          <p style="font-family:var(--serif);font-size:18px;color:var(--fg);margin-top:32px;">経営者であり、挑戦者であり、支援者であり、表現者。<br>人の魅力を見つけ、可能性を形にする人間です。</p>
         </div>
-        <p style={{ fontSize: 13, lineHeight: 1.85, color: "rgba(244,241,234,0.7)", maxWidth: "44ch" }}>
-          人の可能性に火をつける。<br />佐賀から、世界へ。圧倒的なキャラ売りで、自分らしく生きる人を増やす。
-        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 ROLES -->
+<section id="roles" style="background:var(--bg-2);">
+  <div class="wrap">
+    <div style="margin-bottom:64px;">
+      <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">03</span>Roles & Activities</div>
+      <h2 class="sec-title" style="margin-top:24px;">事業家。コーチ。国際活動家。<br>そして、<em>人を動かす</em>表現者。</h2>
+    </div>
+    <div class="roles-grid">
+      <article style="background:var(--bg);padding:44px 40px;display:flex;flex-direction:column;gap:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="mono" style="color:var(--accent);">01</div><div class="mono" style="color:var(--muted);">BRANDING</div></div>
+        <div><div style="font-size:22px;font-weight:700;line-height:1.4;margin-bottom:14px;">株式会社Ma 代表取締役</div><div class="eng" style="font-size:13px;color:var(--muted);letter-spacing:.02em;line-height:1.6;">CEO / Representative Director, Ma Inc.</div></div>
+        <p style="font-size:14.5px;line-height:1.85;color:var(--fg-2);margin:0;">事業運営、SNS支援、企業PR、コーチング、ブランディング支援を展開。人の魅力や企業の本質を引き出し、伝わる形に変える。</p>
+      </article>
+      <article style="background:var(--bg);padding:44px 40px;display:flex;flex-direction:column;gap:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="mono" style="color:var(--accent);">02</div><div class="mono" style="color:var(--muted);">BRIDGE</div></div>
+        <div><div style="font-size:22px;font-weight:700;line-height:1.4;margin-bottom:14px;">NPO法人グローバルブリッジ 理事長</div><div class="eng" style="font-size:13px;color:var(--muted);letter-spacing:.02em;line-height:1.6;">Chairperson, Global Bridge NPO</div></div>
+        <p style="font-size:14.5px;line-height:1.85;color:var(--fg-2);margin:0;">国際交流、教育支援、地域活性化、ボランティア活動などを推進。日本と世界をつなぐ架け橋として活動。</p>
+      </article>
+      <article style="background:var(--bg);padding:44px 40px;display:flex;flex-direction:column;gap:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="mono" style="color:var(--accent);">03</div><div class="mono" style="color:var(--muted);">REAL ESTATE</div></div>
+        <div><div style="font-size:22px;font-weight:700;line-height:1.4;margin-bottom:14px;">Bohol Sunset Properties Inc. 代表</div><div class="eng" style="font-size:13px;color:var(--muted);letter-spacing:.02em;line-height:1.6;">President, Bohol Sunset Properties Inc.</div></div>
+        <p style="font-size:14.5px;line-height:1.85;color:var(--fg-2);margin:0;">フィリピン・ボホール島にて、不動産開発・賃貸事業を展開。現地雇用、商業スペース開発、海外事業の実践に取り組む。</p>
+      </article>
+      <article style="background:var(--bg);padding:44px 40px;display:flex;flex-direction:column;gap:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="mono" style="color:var(--accent);">04</div><div class="mono" style="color:var(--muted);">FITNESS</div></div>
+        <div><div style="font-size:22px;font-weight:700;line-height:1.4;margin-bottom:14px;">Make & Space 運営</div><div class="eng" style="font-size:13px;color:var(--muted);letter-spacing:.02em;line-height:1.6;">Fitness Gym Management</div></div>
+        <p style="font-size:14.5px;line-height:1.85;color:var(--fg-2);margin:0;">佐賀市でパーソナルジム・女性向けフィットネス事業を展開。健康、ダイエット、人生の質を高めるためのサポートを行う。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TURNING POINT -->
+<section id="turning-point" style="background:linear-gradient(180deg,#0E0E0C 0%,#14130F 100%);color:var(--invert-fg);padding:180px 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;left:0;right:0;top:38%;height:1px;background:linear-gradient(90deg,transparent,rgba(244,241,234,.18),transparent);"></div>
+  <div class="wrap-narrow">
+    <div class="kicker" style="color:var(--invert-muted);margin-bottom:64px;"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">—</span>A day that changed everything</div>
+    <div class="tp-grid">
+      <div>
+        <div class="mono" style="color:var(--accent);margin-bottom:20px;font-size:12px;">DEC 03 / 2024 · BOHOL, PHILIPPINES</div>
+        <h2 style="font-size:clamp(40px,6.4vw,88px);line-height:1.15;font-weight:700;margin:0 0 32px;text-wrap:balance;">人生が、<br><span style="font-family:var(--serif);font-weight:500;color:var(--accent);">変わった日。</span></h2>
+        <p class="serif" style="font-size:17px;line-height:2;color:rgba(244,241,234,.7);margin:0;">人は、いつ死ぬかわからない。<br>だからこそ、自分らしく生きることを<br>後回しにしてはいけない。</p>
+      </div>
+      <div class="imgph invert" style="aspect-ratio:3/4;"><div class="corner">—</div><div class="label">DAWN — Bohol coast, the morning after</div></div>
+    </div>
+    <div class="tp-story">
+      <div style="padding:32px 0;border-top:1px solid var(--invert-line);border-bottom:1px solid var(--invert-line);font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:var(--accent);text-transform:uppercase;"><div>00:00</div><div style="color:var(--invert-muted);margin-top:6px;font-size:10px;">事故発生</div></div>
+      <div style="padding:32px 0 32px 32px;border-top:1px solid var(--invert-line);border-bottom:1px solid var(--invert-line);font-size:16px;line-height:1.95;color:rgba(244,241,234,.92);">2024年12月3日。<br>フィリピンで、バイクの交通事故に遭いました。</div>
+      <div style="padding:32px 0;border-bottom:1px solid var(--invert-line);font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:var(--accent);text-transform:uppercase;"><div>+48h</div><div style="color:var(--invert-muted);margin-top:6px;font-size:10px;">意識不明</div></div>
+      <div style="padding:32px 0 32px 32px;border-bottom:1px solid var(--invert-line);font-size:16px;line-height:1.95;color:rgba(244,241,234,.92);">2日間、意識不明。</div>
+      <div style="padding:32px 0;border-bottom:1px solid var(--invert-line);font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:var(--accent);text-transform:uppercase;"><div>覚醒</div><div style="color:var(--invert-muted);margin-top:6px;font-size:10px;">現地病院にて</div></div>
+      <div style="padding:32px 0 32px 32px;border-bottom:1px solid var(--invert-line);font-size:16px;line-height:1.95;color:rgba(244,241,234,.92);">目を覚ますと、<br>フィリピンの私立病院でした。</div>
+      <div style="padding:32px 0;border-bottom:1px solid var(--invert-line);font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:var(--accent);text-transform:uppercase;"><div>退院</div><div style="color:var(--invert-muted);margin-top:6px;font-size:10px;">現地医師の診断</div></div>
+      <div style="padding:32px 0 32px 32px;border-bottom:1px solid var(--invert-line);font-size:16px;line-height:1.95;color:rgba(244,241,234,.92);">現地の医師からは、<br>「問題ない。帰っていい」<br>と言われました。</div>
+      <div style="padding:32px 0;border-bottom:1px solid var(--invert-line);font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:var(--accent);text-transform:uppercase;"><div>帰国</div><div style="color:var(--invert-muted);margin-top:6px;font-size:10px;">日本・大学病院</div></div>
+      <div style="padding:32px 0 32px 32px;border-bottom:1px solid var(--invert-line);font-size:16px;line-height:1.95;color:rgba(244,241,234,.92);">しかし、帰国後に日本の大学病院でMRI検査を受けると、<br>肋骨9本の骨折と脳内出血が見つかりました。</div>
+      <div style="padding:32px 0;border-bottom:1px solid var(--invert-line);font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:var(--accent);text-transform:uppercase;"><div>問い</div><div style="color:var(--invert-muted);margin-top:6px;font-size:10px;">—</div></div>
+      <div style="padding:32px 0 32px 32px;border-bottom:1px solid var(--invert-line);font-size:17px;line-height:1.95;color:rgba(244,241,234,.65);font-family:var(--serif);">あの時、何が「問題なかった」のか。<br>今でも聞いてみたいと思っています。</div>
+    </div>
+    <div style="margin-top:140px;text-align:center;">
+      <div class="mono" style="color:var(--invert-muted);margin-bottom:32px;">AND THEN —</div>
+      <p style="font-family:var(--serif);font-size:clamp(22px,2.4vw,32px);line-height:1.9;color:var(--invert-fg);margin:0 0 56px;text-wrap:balance;">でも、その事故が<br>教えてくれたことがあります。</p>
+      <div style="display:inline-block;padding:40px 56px;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);">
+        <div class="mono" style="color:var(--accent);margin-bottom:16px;font-size:11px;">WHAT IT TAUGHT ME</div>
+        <p style="font-family:var(--serif);font-size:clamp(28px,3.6vw,48px);line-height:1.5;margin:0;color:var(--invert-fg);font-weight:500;">人は、<br>いつ死ぬか<br>わからない。</p>
+      </div>
+      <p style="margin:64px auto 0;font-size:16px;line-height:2.1;color:rgba(244,241,234,.85);max-width:44ch;">だからこそ、<br>自分らしく生きることを後回しにしてはいけない。<br><br>誰かの可能性に火をつけたい。<br>迷っている人の背中を押せる人になりたい。</p>
+      <p style="margin:56px auto 0;padding-top:40px;border-top:1px solid var(--invert-line);max-width:48ch;font-size:14px;line-height:2;color:var(--invert-muted);">古賀久達の人生理念は、<br>この事故をきっかけに、より強く、はっきりと形になりました。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PHILOSOPHY -->
+<section id="philosophy" style="background:var(--invert-bg);color:var(--invert-fg);padding:160px 0;">
+  <div class="wrap-narrow">
+    <div style="margin-bottom:56px;"><div class="kicker" style="color:var(--invert-muted);"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">04</span>Philosophy</div></div>
+    <h2 style="font-size:clamp(36px,5.6vw,76px);line-height:1.2;font-weight:700;margin:0 0 64px;letter-spacing:.005em;text-wrap:balance;">圧倒的な<span style="font-family:var(--serif);font-weight:500;color:var(--accent);">キャラ売り</span>で、<br>自分らしく生きる。</h2>
+    <div class="phil-grid">
+      <div style="font-size:16px;line-height:2;color:rgba(244,241,234,.85);">
+        <p style="margin:0 0 1.5em;">人は、完璧だから選ばれるのではありません。その人にしかない経験、言葉、表情、熱量、失敗、違和感。そういう"人間らしさ"に、人は惹かれます。</p>
+        <p style="margin:0 0 1.5em;">古賀久達が大切にしているのは、自分を大きく見せることではなく、自分らしさを隠さず、価値に変えること。</p>
+      </div>
+      <div style="font-size:16px;line-height:2;color:rgba(244,241,234,.85);">
+        <p style="margin:0 0 1.5em;">圧倒的なキャラ売りとは、無理にキャラクターを作ることではありません。本来持っている個性を見つけ、磨き、伝わる形にすることです。</p>
+        <p style="margin:0 0 1.5em;">AIの時代だからこそ、整った情報よりも、その人にしか出せない<em style="color:var(--accent);font-style:normal;font-family:var(--serif);">"人間味"</em>が武器になる。</p>
+      </div>
+    </div>
+    <div style="margin-top:80px;padding-top:40px;border-top:1px solid var(--invert-line);font-family:var(--serif);font-size:22px;line-height:1.9;text-align:center;">
+      自分らしく生きる人を増やす。<br>自分のキャラクターで勝負できる人を増やす。<br><span style="color:var(--accent);">— それが、古賀久達の考え方です。</span>
+    </div>
+  </div>
+</section>
+
+<!-- REDEFINITION -->
+<section id="redefinition" style="background:var(--invert-bg);color:var(--invert-fg);padding:180px 0;">
+  <div class="wrap-narrow">
+    <div class="kicker" style="color:var(--invert-muted);margin-bottom:56px;"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">—</span>What we actually sell</div>
+    <h2 style="font-size:clamp(36px,5.6vw,76px);line-height:1.25;font-weight:700;margin:0 0 32px;text-wrap:balance;">売っているのは、<br>サービスではなく<br><span style="font-family:var(--serif);font-weight:500;color:var(--accent);">"状態"</span>。</h2>
+    <div style="font-family:var(--serif);font-size:19px;line-height:2.1;color:rgba(244,241,234,.78);max-width:44ch;margin:0 0 120px;">
+      古賀久達が提供しているものは、<br>単なる動画制作ではありません。<br><br>人の魅力が、<br>ちゃんと伝わる<em style="color:var(--accent);font-style:normal;">状態</em>をつくること。<br><br>単なるコーチングではありません。<br><br>その人が、<br>自分らしく動き出せる<em style="color:var(--accent);font-style:normal;">状態</em>をつくること。<br><br>単なるセミナーではありません。<br><br>人間力とコミュニケーション力に火がつき、<br>明日からの行動が変わる<em style="color:var(--accent);font-style:normal;">場</em>をつくること。
+    </div>
+    <div style="display:flex;flex-direction:column;gap:80px;">
+      <div style="border-top:1px solid var(--invert-line);padding-top:40px;">
+        <div class="mono" style="color:var(--accent);margin-bottom:32px;font-size:11px;">01 / OF THREE</div>
+        <p style="font-size:clamp(24px,3.2vw,40px);line-height:1.45;font-weight:600;margin:0 0 24px;color:rgba(244,241,234,.45);text-decoration:line-through;text-decoration-color:rgba(244,241,234,.25);text-decoration-thickness:1px;">売っているのは、動画ではありません。</p>
+        <p style="font-size:clamp(28px,4.4vw,56px);line-height:1.35;font-weight:700;margin:0;color:var(--invert-fg);text-wrap:balance;">売っているのは、<br><span style="font-family:var(--serif);font-weight:500;color:var(--accent);">その人の魅力が伝わる瞬間</span>です。</p>
+      </div>
+      <div style="border-top:1px solid var(--invert-line);padding-top:40px;">
+        <div class="mono" style="color:var(--accent);margin-bottom:32px;font-size:11px;">02 / OF THREE</div>
+        <p style="font-size:clamp(24px,3.2vw,40px);line-height:1.45;font-weight:600;margin:0 0 24px;color:rgba(244,241,234,.45);text-decoration:line-through;text-decoration-color:rgba(244,241,234,.25);text-decoration-thickness:1px;">売っているのは、コーチングではありません。</p>
+        <p style="font-size:clamp(28px,4.4vw,56px);line-height:1.35;font-weight:700;margin:0;color:var(--invert-fg);text-wrap:balance;">売っているのは、<br><span style="font-family:var(--serif);font-weight:500;color:var(--accent);">自分らしく動き出せるきっかけ</span>です。</p>
+      </div>
+      <div style="border-top:1px solid var(--invert-line);padding-top:40px;">
+        <div class="mono" style="color:var(--accent);margin-bottom:32px;font-size:11px;">03 / OF THREE</div>
+        <p style="font-size:clamp(24px,3.2vw,40px);line-height:1.45;font-weight:600;margin:0 0 24px;color:rgba(244,241,234,.45);text-decoration:line-through;text-decoration-color:rgba(244,241,234,.25);text-decoration-thickness:1px;">売っているのは、セミナーではありません。</p>
+        <p style="font-size:clamp(28px,4.4vw,56px);line-height:1.35;font-weight:700;margin:0;color:var(--invert-fg);text-wrap:balance;">売っているのは、<br><span style="font-family:var(--serif);font-weight:500;color:var(--accent);">人が動き出す場</span>です。</p>
+      </div>
+    </div>
+    <div style="margin-top:120px;padding-top:56px;border-top:1px solid var(--invert-line);font-family:var(--serif);font-size:18px;line-height:2.1;color:rgba(244,241,234,.78);max-width:48ch;">
+      動画も、コーチングも、セミナーも、<br>すべては手段です。<br><br>本当に届けたいのは、<br>その人の中にある可能性が、<br>まわりに伝わり、動き出す<em style="color:var(--accent);font-style:normal;">瞬間</em>です。
+    </div>
+    <div style="margin-top:140px;text-align:center;padding-top:56px;border-top:1px solid var(--accent);">
+      <div class="mono" style="color:var(--accent);margin-bottom:40px;font-size:11px;">— IN THE END —</div>
+      <p style="font-family:var(--serif);font-size:clamp(28px,4vw,52px);line-height:1.5;font-weight:500;margin:0;color:var(--invert-fg);text-wrap:balance;">すべては、<br><span style="color:var(--accent);">人の可能性に火をつける</span>ために。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 AI ERA -->
+<section>
+  <div class="wrap">
+    <div class="two-col two-col-50">
+      <div>
+        <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">05</span>AI Era</div>
+        <h2 class="sec-title" style="margin-top:24px;">AIの時代だからこそ、<br>最後に残るのは<em>「人」</em>だ。</h2>
+        <div class="sec-body">
+          <p>テクノロジーは進化し、AIは多くの仕事を効率化していきます。しかし、人が人を信じる理由。人が商品を買う理由。人が誰かについていきたいと思う理由。</p>
+          <p>その中心には、いつの時代も「人間力」があります。</p>
+          <p>古賀久達が大切にしているのは、知識だけではなく、<strong>行動する力</strong>。正しさだけではなく、<strong>伝える力</strong>。仕組みだけではなく、<strong>人を巻き込む力</strong>。</p>
+          <p>人の可能性に火をつける。それは、目の前の一人の人生を変え、企業を変え、地域を変え、世界へ広がっていく力だと信じています。</p>
+        </div>
+      </div>
+      <div class="imgph" style="aspect-ratio:4/5;"><div class="corner">DOC / 02</div><div class="label">ON-SITE — coaching session, Saga</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="two-col two-col-40" style="margin-bottom:64px;">
+      <div><div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">06</span>Services</div></div>
+      <div>
+        <h2 class="sec-title">あなたの<em>魅力</em>を、<br>選ばれる理由に変える。</h2>
+        <p style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:60ch;margin:0;">売り込みではなく、引き出すこと。整えるのではなく、にじみ出させること。<br>古賀久達のサービスは、すべて「あなたが、あなたのまま選ばれる」ためにあります。</p>
+      </div>
+    </div>
+    <div class="svc-top">
+      <article style="background:var(--bg);padding:48px 40px;display:flex;flex-direction:column;gap:18px;min-height:380px;">
+        <div class="mono" style="color:var(--accent);font-size:12px;">SERVICE / 01</div>
+        <div><div style="font-size:24px;font-weight:700;line-height:1.4;margin-bottom:8px;">キャラ売りブランディング支援</div><div class="eng" style="font-size:12px;color:var(--muted);letter-spacing:.04em;">Personal Character Branding</div></div>
+        <p class="serif" style="font-size:18px;color:var(--accent);margin:0;line-height:1.6;">"この人だから選ばれる"を、つくる。</p>
+        <p style="font-size:14px;line-height:1.9;color:var(--fg-2);margin:0;flex:1;">経営者・個人事業主・リーダー・店舗オーナーの個性を整理し、伝わる形に変換します。見た目だけのブランディングではなく、経験、考え方、話し方、価値観、失敗談、熱量まで含めて、SNS・動画・LP・営業資料に落とし込みます。</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;padding-top:14px;border-top:1px dashed var(--line);"><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">個性の棚卸し</span><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">言語化</span><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">発信導線</span></div>
+      </article>
+      <article style="background:var(--bg);padding:48px 40px;display:flex;flex-direction:column;gap:18px;min-height:380px;">
+        <div class="mono" style="color:var(--accent);font-size:12px;">SERVICE / 02</div>
+        <div><div style="font-size:24px;font-weight:700;line-height:1.4;margin-bottom:8px;">人間力コーチング</div><div class="eng" style="font-size:12px;color:var(--muted);letter-spacing:.04em;">Human Capacity Coaching</div></div>
+        <p class="serif" style="font-size:18px;color:var(--accent);margin:0;line-height:1.6;">AIには代替されない、"人を動かす力"を磨く。</p>
+        <p style="font-size:14px;line-height:1.9;color:var(--fg-2);margin:0;flex:1;">経営者・リーダー・若手に対して、人間力・関係構築力・行動力・自己決定力を高める1on1コーチング。話して終わりではなく、「明日から何をするか」まで一緒に決める、行動に変わる対話を提供します。</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;padding-top:14px;border-top:1px dashed var(--line);"><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">1on1</span><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">意思決定</span><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">行動変容</span></div>
+      </article>
+    </div>
+    <div class="svc-grid">
+      <article style="background:var(--bg);padding:40px 32px;display:flex;flex-direction:column;gap:16px;min-height:380px;">
+        <div class="mono" style="color:var(--accent);font-size:12px;">SERVICE / 03</div>
+        <div><div style="font-size:19px;font-weight:700;line-height:1.45;margin-bottom:8px;">コミュニケーション研修・セミナー</div><div class="eng" style="font-size:11.5px;color:var(--muted);letter-spacing:.04em;">Communication Training & Talks</div></div>
+        <p class="serif" style="font-size:15.5px;color:var(--accent);margin:0;line-height:1.6;">YES, AND で広がる、人が動く対話術。</p>
+        <p style="font-size:13.5px;line-height:1.85;color:var(--fg-2);margin:0;flex:1;">アメリカ式コミュニケーション理論をベースに、否定から入らない「YES/AND」、承認から広げる対話、人が動く伝え方を体系的に学べる研修・セミナー。</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;padding-top:12px;border-top:1px dashed var(--line);"><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">YES, AND</span><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">承認</span><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">AI時代の人間力</span></div>
+      </article>
+      <article style="background:var(--bg);padding:40px 32px;display:flex;flex-direction:column;gap:16px;min-height:380px;">
+        <div class="mono" style="color:var(--accent);font-size:12px;">SERVICE / 04</div>
+        <div><div style="font-size:19px;font-weight:700;line-height:1.45;margin-bottom:8px;">動画制作・SNS運用サポート</div><div class="eng" style="font-size:11.5px;color:var(--muted);letter-spacing:.04em;">Short-form Video & SNS Support</div></div>
+        <p class="serif" style="font-size:15.5px;color:var(--accent);margin:0;line-height:1.6;">ただ撮るのではなく、魅力を引き出して発信する。</p>
+        <p style="font-size:13.5px;line-height:1.85;color:var(--fg-2);margin:0;flex:1;">経営者・企業の魅力を引き出し、ショート動画・リール・SNSコンテンツに翻訳。採用・営業・信頼・売上につながる発信を企画から運用まで設計します。</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;padding-top:12px;border-top:1px dashed var(--line);"><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">ショート動画</span><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">採用・営業</span><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">運用設計</span></div>
+      </article>
+      <article style="background:var(--bg);padding:40px 32px;display:flex;flex-direction:column;gap:16px;min-height:380px;">
+        <div class="mono" style="color:var(--accent);font-size:12px;">SERVICE / 05</div>
+        <div><div style="font-size:19px;font-weight:700;line-height:1.45;margin-bottom:8px;">経営者・企業PRサポート</div><div class="eng" style="font-size:11.5px;color:var(--muted);letter-spacing:.04em;">Founder & Corporate PR</div></div>
+        <p class="serif" style="font-size:15.5px;color:var(--accent);margin:0;line-height:1.6;">社長の想いが、伝わっていますか？</p>
+        <p style="font-size:13.5px;line-height:1.85;color:var(--fg-2);margin:0;flex:1;">「想いはあるのに伝わっていない会社」のために、社長と企業の本質を言語化し、動画・SNS・LP・採用資料・営業資料に落とし込みます。</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;padding-top:12px;border-top:1px dashed var(--line);"><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">経営者PR</span><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">採用広報</span><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">差別化</span></div>
+      </article>
+      <article style="background:var(--bg);padding:40px 32px;display:flex;flex-direction:column;gap:16px;min-height:380px;">
+        <div class="mono" style="color:var(--accent);font-size:12px;">SERVICE / 06</div>
+        <div><div style="font-size:19px;font-weight:700;line-height:1.45;margin-bottom:8px;">事業開発・マネタイズ壁打ち</div><div class="eng" style="font-size:11.5px;color:var(--muted);letter-spacing:.04em;">Business & Monetization Sparring</div></div>
+        <p class="serif" style="font-size:15.5px;color:var(--accent);margin:0;line-height:1.6;">アイデアを、ちゃんと事業に変える。</p>
+        <p style="font-size:13.5px;line-height:1.85;color:var(--fg-2);margin:0;flex:1;">新規事業、地域ビジネス、海外展開、NPO活動。複数の視点から事業の方向性を整理し、マネタイズの道筋を一緒に設計。外部CSO的な壁打ちを提供します。</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;padding-top:12px;border-top:1px dashed var(--line);"><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">新規事業</span><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">整理</span><span style="font-size:11px;padding:4px 10px;border:1px solid var(--line-strong);color:var(--fg-2);">収益設計</span></div>
+      </article>
+    </div>
+    <div class="svc-nudge">
+      <div>
+        <div class="mono" style="color:var(--accent);margin-bottom:8px;">HOW WE START</div>
+        <p style="font-size:16px;line-height:1.85;margin:0;color:var(--fg);">いきなり契約ではなく、まずは <strong>30分の壁打ち</strong>から。<br>話してみて、合いそうなら、合うサービスを一緒に決めます。</p>
+      </div>
+      <a href="#contact" class="btn">壁打ちを申し込む <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- EASY ENTRY -->
+<section id="easy-entry">
+  <div class="wrap">
+    <div class="two-col two-col-ee">
+      <div>
+        <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">—</span>Easy entry</div>
+        <h2 class="sec-title" style="margin-top:24px;">こんな相談から<br><em>で大丈夫です。</em></h2>
+        <p style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:44ch;">まだ、何を頼めばいいか決まっていなくても大丈夫です。<br>まとまっていない状態から火をつけるのが、古賀久達の役割です。</p>
+        <a href="#contact" class="btn" style="margin-top:24px;">まずは話してみる <span class="arrow">→</span></a>
       </div>
       <div>
-        <h4>Sitemap</h4>
-        <p>
-          <a href="#about">About</a><br /><a href="#roles">Roles</a><br />
-          <a href="#philosophy">Philosophy</a><br /><a href="#services">Services</a><br />
-          <a href="#strengths">Strengths</a><br /><a href="#profile">Profile</a><br />
-          <a href="#contact">Contact</a>
-        </p>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <p>
-          Saga · Japan<br />Bohol · Philippines<br /><br />
-          <a href="#contact">→ 相談する</a><br />
-          <a href="#contact">→ 仕事を依頼する</a>
-        </p>
-      </div>
-      <div className="copyright">
-        <div>© 2026 Ma Inc. / Hisamichi Koga. All rights reserved.</div>
-        <div className="eng">DESIGNED FOR PEOPLE WHO LIVE AS THEMSELVES.</div>
+        <ul style="list-style:none;margin:0;padding:0;">
+          <li style="display:flex;gap:24px;align-items:baseline;padding:24px 8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:36px;">—</span><span class="serif" style="font-size:18px;line-height:1.7;">自分の強みを整理したい</span></li>
+          <li style="display:flex;gap:24px;align-items:baseline;padding:24px 8px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:36px;">—</span><span class="serif" style="font-size:18px;line-height:1.7;">会社の魅力を言葉にしたい</span></li>
+          <li style="display:flex;gap:24px;align-items:baseline;padding:24px 8px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:36px;">—</span><span class="serif" style="font-size:18px;line-height:1.7;">動画やSNSを始めたいけど、何を出せばいいかわからない</span></li>
+          <li style="display:flex;gap:24px;align-items:baseline;padding:24px 8px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:36px;">—</span><span class="serif" style="font-size:18px;line-height:1.7;">社員にもっと伝わる話し方を学ばせたい</span></li>
+          <li style="display:flex;gap:24px;align-items:baseline;padding:24px 8px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:36px;">—</span><span class="serif" style="font-size:18px;line-height:1.7;">自分らしいキャラクターで選ばれるようになりたい</span></li>
+        </ul>
+        <p style="margin-top:32px;font-size:14px;line-height:1.95;color:var(--muted);padding-left:60px;">そんな、まだ形になっていない相談から、一緒に整理します。<br>最初から完璧な相談でなくていい。</p>
       </div>
     </div>
-  </footer>
-);
+  </div>
+</section>
 
-/* ─────────────────────────────────────────────
-   APP
-───────────────────────────────────────────── */
-const TWEAK_DEFAULTS = { accent: "#A47F3D", tone: "warm", serifEmphasis: true };
-const ACCENTS = ["#A47F3D", "#1E3A5F", "#7A1F1F", "#3D5A47"];
-const TONES = ["warm", "neutral", "cool"];
+<!-- 07 STRENGTHS -->
+<section id="strengths" style="background:var(--bg-2);">
+  <div class="wrap">
+    <div style="margin-bottom:64px;">
+      <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">07</span>Strengths</div>
+      <h2 class="sec-title" style="margin-top:24px;">現場で動き、言葉にし、<br><em>人を巻き込む。</em></h2>
+    </div>
+    <div class="str-grid">
+      <div style="background:var(--bg);padding:36px 28px;border-top:2px solid var(--accent);"><div class="mono" style="color:var(--muted);margin-bottom:18px;">01</div><div style="font-size:18px;font-weight:700;margin-bottom:12px;line-height:1.5;">実践しているから語れる</div><p style="font-size:13.5px;line-height:1.85;color:var(--fg-2);margin:0;">ジム経営、SNS運用、NPO活動、海外法人、不動産開発。机上の理論ではなく、自ら事業を動かしてきた実践知があります。</p></div>
+      <div style="background:var(--bg);padding:36px 28px;border-top:2px solid var(--accent);"><div class="mono" style="color:var(--muted);margin-bottom:18px;">02</div><div style="font-size:18px;font-weight:700;margin-bottom:12px;line-height:1.5;">人の魅力を見つける力</div><p style="font-size:13.5px;line-height:1.85;color:var(--fg-2);margin:0;">企業や人の中に眠っている強み、想い、ストーリーを見つけ、伝わる言葉に変えることを得意としています。</p></div>
+      <div style="background:var(--bg);padding:36px 28px;border-top:2px solid var(--accent);"><div class="mono" style="color:var(--muted);margin-bottom:18px;">03</div><div style="font-size:18px;font-weight:700;margin-bottom:12px;line-height:1.5;">地域と世界をつなぐ視点</div><p style="font-size:13.5px;line-height:1.85;color:var(--fg-2);margin:0;">佐賀という地域に根ざしながら、フィリピンをはじめとする海外との接点を持ち、ローカルとグローバルをつなぎます。</p></div>
+      <div style="background:var(--bg);padding:36px 28px;border-top:2px solid var(--accent);"><div class="mono" style="color:var(--muted);margin-bottom:18px;">04</div><div style="font-size:18px;font-weight:700;margin-bottom:12px;line-height:1.5;">行動に変えるコミュニケーション</div><p style="font-size:13.5px;line-height:1.85;color:var(--fg-2);margin:0;">話して終わりではなく、次に何をするかまで整理。人が動き出すための言葉と仕組みを設計します。</p></div>
+      <div style="background:var(--bg);padding:36px 28px;border-top:2px solid var(--accent);"><div class="mono" style="color:var(--muted);margin-bottom:18px;">05</div><div style="font-size:18px;font-weight:700;margin-bottom:12px;line-height:1.5;">SNS・動画時代の発信設計</div><p style="font-size:13.5px;line-height:1.85;color:var(--fg-2);margin:0;">ショート動画、SNS広告、企業PR、採用動画など、現代に合った発信の形に落とし込めます。</p></div>
+      <div style="background:var(--bg);padding:36px 28px;border-top:2px solid var(--accent);"><div class="mono" style="color:var(--muted);margin-bottom:18px;">06</div><div style="font-size:18px;font-weight:700;margin-bottom:12px;line-height:1.5;">熱量と現実性のバランス</div><p style="font-size:13.5px;line-height:1.85;color:var(--fg-2);margin:0;">夢を語るだけではなく、売上・導線・人材・運用まで考える。情熱と経営の両方を大切にしています。</p></div>
+    </div>
+  </div>
+</section>
 
-function App() {
-  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+<!-- NOT JUST STARS -->
+<section style="background:var(--bg-2);">
+  <div class="wrap-narrow">
+    <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">—</span>For everyone with a flame</div>
+    <h2 class="sec-title" style="margin-top:24px;text-wrap:balance;">すごい人だけを<br><em>応援したいわけではありません。</em></h2>
+    <div class="njs-lines">
+      <div style="padding:28px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:clamp(22px,2.6vw,32px);line-height:1.6;color:var(--fg);"><span class="mono" style="color:var(--accent);margin-right:20px;font-size:11px;vertical-align:middle;">01</span>まだ何者でもない人。</div>
+      <div style="padding:28px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:clamp(22px,2.6vw,32px);line-height:1.6;color:var(--fg);"><span class="mono" style="color:var(--accent);margin-right:20px;font-size:11px;vertical-align:middle;">02</span>自分の魅力に気づいていない人。</div>
+      <div style="padding:28px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:clamp(22px,2.6vw,32px);line-height:1.6;color:var(--fg);"><span class="mono" style="color:var(--accent);margin-right:20px;font-size:11px;vertical-align:middle;">03</span>何か始めたいけど、言葉にできていない人。</div>
+    </div>
+    <p style="font-size:17px;line-height:2;color:var(--fg-2);max-width:48ch;">そういう人の中にある<em style="color:var(--accent);font-style:normal;font-family:var(--serif);">火種</em>を見つけることが、<br>古賀久達の仕事です。</p>
+  </div>
+</section>
 
-  useEffect(() => {
-    const r = document.documentElement.style;
-    r.setProperty("--accent", t.accent);
-    if (t.tone === "warm") {
-      r.setProperty("--bg", "#F7F5F1"); r.setProperty("--bg-2", "#EFEBE3");
-    } else if (t.tone === "neutral") {
-      r.setProperty("--bg", "#F4F4F2"); r.setProperty("--bg-2", "#EAEAE6");
-    } else {
-      r.setProperty("--bg", "#F2F4F6"); r.setProperty("--bg-2", "#E6EAEE");
-    }
-  }, [t.accent, t.tone]);
+<!-- 08 CHECKLIST -->
+<section id="checklist">
+  <div class="wrap">
+    <div class="two-col two-col-check">
+      <div style="position:sticky;top:100px;">
+        <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">08</span>For You</div>
+        <h2 class="sec-title" style="margin-top:24px;">こんな方は、<br><em>一度ご相談ください。</em></h2>
+        <p style="font-size:14px;color:var(--muted);line-height:1.8;">一つでも当てはまれば、<br>30分の壁打ちから始めましょう。</p>
+      </div>
+      <div>
+        <ul style="list-style:none;margin:0;padding:0;border-top:1px solid var(--line);">
+          <li style="display:flex;gap:20px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:32px;">01</span><span style="font-size:16px;line-height:1.6;">会社の魅力がうまく伝わっていない</span></li>
+          <li style="display:flex;gap:20px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:32px;">02</span><span style="font-size:16px;line-height:1.6;">社長の想いや人柄をもっと発信したい</span></li>
+          <li style="display:flex;gap:20px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:32px;">03</span><span style="font-size:16px;line-height:1.6;">SNSや動画を活用したいが、何を出せばいいかわからない</span></li>
+          <li style="display:flex;gap:20px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:32px;">04</span><span style="font-size:16px;line-height:1.6;">採用や営業で他社との差別化に悩んでいる</span></li>
+          <li style="display:flex;gap:20px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:32px;">05</span><span style="font-size:16px;line-height:1.6;">自分自身のキャラクターや強みを発信したい</span></li>
+          <li style="display:flex;gap:20px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:32px;">06</span><span style="font-size:16px;line-height:1.6;">新規事業のアイデアはあるが、整理できていない</span></li>
+          <li style="display:flex;gap:20px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:32px;">07</span><span style="font-size:16px;line-height:1.6;">自分自身の強みや商品設計を見直したい</span></li>
+          <li style="display:flex;gap:20px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:32px;">08</span><span style="font-size:16px;line-height:1.6;">海外展開や国際交流に興味がある</span></li>
+          <li style="display:flex;gap:20px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:32px;">09</span><span style="font-size:16px;line-height:1.6;">社員や若者の人間力・コミュニケーション力を高めたい</span></li>
+          <li style="display:flex;gap:20px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:32px;">10</span><span style="font-size:16px;line-height:1.6;">地域の可能性をもっと発信したい</span></li>
+          <li style="display:flex;gap:20px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);"><span class="mono" style="color:var(--accent);min-width:32px;">11</span><span style="font-size:16px;line-height:1.6;">とにかく一歩踏み出すための壁打ち相手がほしい</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-  useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
-    }, { threshold: 0.08 });
-    els.forEach(el => io.observe(el));
-    return () => io.disconnect();
-  }, []);
+<!-- 09 ACTIVITIES -->
+<section id="activities" style="background:var(--invert-bg);color:var(--invert-fg);padding:120px 0;">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--invert-muted);"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">09</span>Activities</div>
+    <h2 style="font-size:clamp(40px,6vw,92px);font-weight:700;margin:24px 0 56px;line-height:1.1;font-family:var(--eng);letter-spacing:-.02em;">Activities.</h2>
+    <div class="act-grid">
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">01</span><span style="font-size:15px;line-height:1.5;">株式会社Ma 代表取締役</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">02</span><span style="font-size:15px;line-height:1.5;">パーソナルジム Make & Space 運営</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">03</span><span style="font-size:15px;line-height:1.5;">女性向けフィットネス・ダイエット事業</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">04</span><span style="font-size:15px;line-height:1.5;">SNSコンサルティング</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">05</span><span style="font-size:15px;line-height:1.5;">企業PR・採用支援</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">06</span><span style="font-size:15px;line-height:1.5;">経営者ブランディング</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">07</span><span style="font-size:15px;line-height:1.5;">キャラ売りブランディング</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">08</span><span style="font-size:15px;line-height:1.5;">コーチング・人材育成</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">09</span><span style="font-size:15px;line-height:1.5;">NPO法人グローバルブリッジ 理事長</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">10</span><span style="font-size:15px;line-height:1.5;">国際交流・教育支援活動</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">11</span><span style="font-size:15px;line-height:1.5;">ボランティア活動</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">12</span><span style="font-size:15px;line-height:1.5;">フィリピン・ボホール島での不動産開発</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">13</span><span style="font-size:15px;line-height:1.5;">Bohol Sunset Properties Inc. 代表</span></div>
+      <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--invert-line);"><span class="mono" style="color:var(--accent);min-width:32px;">14</span><span style="font-size:15px;line-height:1.5;">佐賀を拠点とした地域活性化活動</span></div>
+    </div>
+  </div>
+</section>
 
-  return (
-    <>
-      <Nav />
-      <main id="top">
-        <Hero />
-        <Marquee />
-        <About />
-        <Roles />
-        <TurningPoint />
-        <Philosophy />
-        <Redefinition />
-        <AIEra />
-        <Services />
-        <EasyEntry />
-        <Strengths />
-        <NotJustStars />
-        <Checklist />
-        <Activities />
-        <Profile />
-        <Contact />
-        <FinalCTA />
-      </main>
-      <Footer />
+<!-- 10/11 PROFILE -->
+<section id="profile">
+  <div class="wrap">
+    <div class="two-col two-col-profile">
+      <div>
+        <div class="imgph" style="aspect-ratio:3/4;"><div class="corner">PROFILE</div><div class="label">PORTRAIT — Profile, monochrome</div></div>
+        <div style="margin-top:24px;font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.8;">BORN / SAGA, JAPAN<br>BASE / SAGA · BOHOL<br>FIELD / BUSINESS · NPO · OVERSEAS</div>
+      </div>
+      <div>
+        <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">10</span>Profile</div>
+        <h2 class="sec-title" style="margin-top:24px;">古賀 久達<br><span class="eng" style="font-size:.55em;font-weight:500;color:var(--muted);letter-spacing:.05em;">Hisamichi Koga</span></h2>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:32px;font-size:14px;line-height:1.8;">
+          <div>株式会社Ma <strong>代表取締役</strong></div>
+          <div>NPO法人グローバルブリッジ <strong>理事長</strong></div>
+          <div>Bohol Sunset Properties Inc. <strong>代表</strong></div>
+        </div>
+        <div class="sec-body">
+          <p>佐賀県佐賀市を拠点に、パーソナルジム運営、SNSコンサルティング、企業PR、コーチング、経営者ブランディング支援を行う。</p>
+          <p>また、フィリピン・ボホール島にて不動産開発・賃貸事業を展開し、海外での事業づくりにも挑戦。</p>
+          <p>NPO活動では、国際交流、教育支援、地域活性化、ボランティア活動をテーマに、日本と海外をつなぐ活動を推進している。</p>
+        </div>
+        <div style="margin-top:40px;padding:32px;background:var(--bg-2);border-left:3px solid var(--accent);font-family:var(--serif);font-size:17px;line-height:2;">
+          自身の軸は、<br><span style="font-size:22px;color:var(--accent);">「人の可能性に火をつける」</span><br>そして、<br><span style="font-size:22px;color:var(--accent);">「圧倒的なキャラ売りで、自分らしく生きる」</span>
+        </div>
+        <div style="margin-top:64px;padding-top:40px;border-top:1px solid var(--line);">
+          <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">11</span>English Profile</div>
+          <h3 class="eng" style="font-size:32px;font-weight:700;margin:16px 0 8px;letter-spacing:-.01em;">Hisamichi Koga</h3>
+          <div class="eng" style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:24px;">CEO / Representative Director, Ma Inc.<br>Chairperson, Global Bridge NPO<br>President, Bohol Sunset Properties Inc.</div>
+          <div class="eng" style="font-size:14px;line-height:1.85;color:var(--fg-2);">
+            <p style="margin:0 0 1.4em;">Based in Saga, Japan, Hisamichi Koga is an entrepreneur, coach, and community leader working across fitness, branding, SNS consulting, nonprofit activities, and international business.</p>
+            <p style="margin:0 0 1.4em;">He operates fitness and wellness businesses, supports companies and leaders through branding and communication strategies, and leads Global Bridge NPO to promote international exchange, education, volunteer work, and community development.</p>
+            <p style="margin:0 0 1.4em;">He also serves as President of Bohol Sunset Properties Inc. in the Philippines, focusing on real estate development and property leasing in Bohol.</p>
+            <p class="serif" style="font-size:18px;color:var(--accent);margin:24px 0 8px;">To ignite human potential.</p>
+            <p style="margin:0;">He believes in living authentically through powerful personal branding and helping others turn their individuality, experience, and human story into value.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <TweaksPanel title="Tweaks">
-        <TweakSection label="Accent">
-          <TweakColor label="アクセントカラー" value={t.accent} options={ACCENTS} onChange={(v) => setTweak("accent", v)} />
-        </TweakSection>
-        <TweakSection label="Background">
-          <TweakRadio label="背景トーン" value={t.tone} options={TONES} onChange={(v) => setTweak("tone", v)} />
-        </TweakSection>
-      </TweaksPanel>
-    </>
-  );
-}
+<!-- 12 CONTACT -->
+<section id="contact" style="background:var(--bg-2);">
+  <div class="wrap">
+    <div style="margin-bottom:56px;">
+      <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">12</span>Contact</div>
+      <h2 class="sec-title eng" style="margin-top:24px;font-family:var(--eng);letter-spacing:-.02em;">Contact.</h2>
+    </div>
+    <div class="contact-grid">
+      <div style="background:var(--bg);padding:40px;">
+        <div class="mono" style="color:var(--accent);margin-bottom:20px;">JAPAN / HEAD OFFICE</div>
+        <div style="font-size:22px;font-weight:700;margin-bottom:8px;">古賀 久達</div>
+        <div class="eng" style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:24px;">Hisamichi Koga<br>CEO / Representative Director, Ma Inc.<br>Chairperson, Global Bridge NPO</div>
+        <div style="font-size:14px;line-height:1.9;"><strong>Japan Address</strong><br>2-1-1 Ekimae-Chuo, Saga City, Saga 840-0801, Japan<br>Kitaguchi Building</div>
+        <div style="margin-top:32px;padding-top:20px;border-top:1px dashed var(--line);"><div class="mono" style="color:var(--muted);margin-bottom:8px;">BUSINESS ACTIVITIES</div><div style="font-size:13px;line-height:1.8;color:var(--fg-2);">Fitness Gym Management / SNS Consulting / Coaching / Volunteer Work / Real Estate Development & Property Leasing</div></div>
+      </div>
+      <div style="background:var(--bg);padding:40px;">
+        <div class="mono" style="color:var(--accent);margin-bottom:20px;">PHILIPPINES / OVERSEAS</div>
+        <div style="font-size:22px;font-weight:700;margin-bottom:8px;">Bohol Sunset Properties Inc.</div>
+        <div class="eng" style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:24px;">President, Bohol Sunset Properties Inc.</div>
+        <div style="font-size:14px;line-height:1.9;"><strong>Philippines Area</strong><br>Tawala, Panglao<br>Bohol, Philippines</div>
+        <div style="margin-top:32px;padding-top:20px;border-top:1px dashed var(--line);"><div class="mono" style="color:var(--muted);margin-bottom:8px;">FOCUS</div><div style="font-size:13px;line-height:1.8;color:var(--fg-2);">Real estate development · Property leasing · Local employment · International bridge</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+<!-- 13 FINAL CTA -->
+<section style="background:var(--invert-bg);color:var(--invert-fg);padding:160px 0;">
+  <div class="wrap-narrow" style="text-align:center;">
+    <div class="kicker" style="color:var(--invert-muted);justify-content:center;"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">13</span>Let's start</div>
+    <h2 style="font-size:clamp(36px,6vw,88px);font-weight:700;line-height:1.2;margin:32px 0 40px;text-wrap:balance;">人の魅力は、<br>まだ<span style="font-family:var(--serif);font-weight:500;color:var(--accent);">眠っている</span>。<br>それを見つけ、伝え、動かす。</h2>
+    <div style="font-size:16px;line-height:2.1;color:rgba(244,241,234,.78);max-width:44ch;margin:0 auto 56px;">
+      会社の魅力。<br>社長の想い。<br>地域の可能性。<br>若者の未来。<br>海外とのつながり。<br>そして、自分らしく生きる力。<br><br>まだ形になっていないものを、<br>言葉にし、事業にし、行動に変えていく。
+    </div>
+    <p style="font-family:var(--serif);font-size:20px;color:var(--invert-fg);margin:0 0 56px;line-height:1.8;">古賀久達は、<br>あなたの中にある可能性に火をつけるパートナーです。</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="#contact" class="btn btn-invert">まずは話してみる <span class="arrow">→</span></a>
+      <a href="#contact" class="btn btn-invert-ghost">壁打ちをお願いする</a>
+      <a href="#contact" class="btn btn-invert-ghost">動画・SNSを相談する</a>
+      <a href="#contact" class="btn btn-invert-ghost">研修・セミナーを相談する</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div>
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+        <div style="width:40px;height:40px;background:var(--invert-fg);color:var(--invert-bg);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;">M</div>
+        <div><div style="font-size:14px;font-weight:700;">株式会社Ma</div><div style="font-family:var(--eng);font-size:10px;letter-spacing:.2em;color:var(--invert-muted);text-transform:uppercase;">Ma Inc. / Saga, Japan</div></div>
+      </div>
+      <p style="font-size:13px;line-height:1.85;color:rgba(244,241,234,.7);max-width:44ch;">人の可能性に火をつける。<br>佐賀から、世界へ。圧倒的なキャラ売りで、自分らしく生きる人を増やす。</p>
+    </div>
+    <div>
+      <h4>Sitemap</h4>
+      <p><a href="#about">About</a><br><a href="#roles">Roles</a><br><a href="#philosophy">Philosophy</a><br><a href="#services">Services</a><br><a href="#strengths">Strengths</a><br><a href="#profile">Profile</a><br><a href="#contact">Contact</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Saga · Japan<br>Bohol · Philippines<br><br><a href="#contact">→ 相談する</a><br><a href="#contact">→ 仕事を依頼する</a></p>
+    </div>
+    <div class="copyright">
+      <div>© 2026 Ma Inc. / Hisamichi Koga. All rights reserved.</div>
+      <div class="eng">DESIGNED FOR PEOPLE WHO LIVE AS THEMSELVES.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
