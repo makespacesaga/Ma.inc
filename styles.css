@@ -519,9 +519,13 @@ section article { overflow: hidden; }
   .contact-cell { padding: 36px 22px !important; }
 }
 
-/* AI Era image — portrait is too tall when column stacks */
+/* AI Era — on mobile: image moves above text, shown as full-width banner */
 @media (max-width: 880px) {
-  .ai-era-img { aspect-ratio: 16/9 !important; }
+  .ai-era-img-wrap { order: -1; }
+  .ai-era-img { aspect-ratio: auto !important; height: 300px; object-position: center 20% !important; }
+}
+@media (max-width: 640px) {
+  .ai-era-img { height: 240px; }
 }
 
 /* Profile portrait — keep portrait, center-crop to show full figure */
