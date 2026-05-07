@@ -333,9 +333,10 @@ html { scroll-behavior: smooth; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--accent); }
 
-/* === Nav compact on scroll === */
-.nav { transition: padding 0.35s ease, box-shadow 0.35s ease; }
+/* === Nav compact on scroll + auto-hide === */
+.nav { transition: transform 0.45s cubic-bezier(0.4,0,0.2,1), padding 0.35s ease, box-shadow 0.35s ease; }
 .nav.scrolled { padding: 13px 32px; box-shadow: 0 1px 24px rgba(14,14,12,0.10); }
+.nav.nav-hidden { transform: translateY(-110%); }
 @media (max-width: 880px) { .nav.scrolled { padding: 11px 22px; } }
 
 /* === Button sweep animation === */
@@ -631,4 +632,22 @@ section article { overflow: hidden; }
 @media (max-width: 640px) {
   .profile-quote { padding: 20px !important; }
   .profile-quote > span { font-size: 16px !important; }
+}
+
+/* === Parallax images === */
+.parallax-img {
+  will-change: transform;
+  transition: transform 0s linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .parallax-img { will-change: auto; }
+}
+
+/* === 3D Tilt cards === */
+.tilt-card {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+@media (hover: none), (pointer: coarse) {
+  .tilt-card { will-change: auto; transform-style: flat; }
 }
