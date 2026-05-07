@@ -120,6 +120,7 @@
   .cta-btns .btn { width: 100%; justify-content: center; }
   .tp-story { grid-template-columns: 60px 1fr !important; }
   .ee-note { padding-left: 0 !important; }
+  .tp-img-offset { margin-left: 0 !important; }
 }
 @media (max-width: 880px) {
   .sticky-left { position: static !important; top: auto !important; }
@@ -276,7 +277,16 @@
         <h2 style="font-size:clamp(40px,6.4vw,88px);line-height:1.15;font-weight:700;margin:0 0 32px;text-wrap:balance;">人生が、<br><span style="font-family:var(--serif);font-weight:500;color:var(--accent);">変わった日。</span></h2>
         <p class="serif" style="font-size:17px;line-height:2;color:rgba(244,241,234,.7);margin:0;">人は、いつ死ぬかわからない。<br>だからこそ、自分らしく生きることを<br>後回しにしてはいけない。</p>
       </div>
-      <div class="imgph invert" style="aspect-ratio:3/4;"><div class="corner">—</div><div class="label">DAWN — Bohol coast, the morning after</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="position:relative;overflow:hidden;">
+          <img src="image/tp-emergency.jpg" alt="フィリピン・ボホール島の救急病院" style="width:100%;aspect-ratio:3/2;object-fit:cover;object-position:center 30%;display:block;" />
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:10px 14px;background:linear-gradient(to top,rgba(14,14,12,0.88),transparent);font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(244,241,234,0.65);">Emergency — Bohol, Philippines · Dec 2024</div>
+        </div>
+        <div class="tp-img-offset" style="position:relative;overflow:hidden;margin-left:32px;">
+          <img src="image/tp-bed.jpg" alt="意識不明、病院のベッドで" style="width:100%;aspect-ratio:3/2;object-fit:cover;object-position:center top;display:block;" />
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:10px 14px;background:linear-gradient(to top,rgba(14,14,12,0.88),transparent);font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(244,241,234,0.65);">+48h — Unconscious, private hospital</div>
+        </div>
+      </div>
     </div>
     <div class="tp-story">
       <div style="padding:32px 0;border-top:1px solid var(--invert-line);border-bottom:1px solid var(--invert-line);font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:var(--accent);text-transform:uppercase;"><div>00:00</div><div style="color:var(--invert-muted);margin-top:6px;font-size:10px;">事故発生</div></div>
