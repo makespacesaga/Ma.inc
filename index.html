@@ -141,6 +141,9 @@
 @media (max-width: 480px) {
   .meta-strip { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
 }
+/* ── Global Network ── */
+.global-exp-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+@media (max-width: 720px) { .global-exp-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -163,6 +166,7 @@
     <a href="#philosophy" onclick="closeMenu()">Philosophy</a>
     <a href="#services"   onclick="closeMenu()">Services</a>
     <a href="#profile"    onclick="closeMenu()">Profile</a>
+    <a href="#global"     onclick="closeMenu()">Global</a>
   </nav>
   <a href="https://lin.ee/wD9FKfk" target="_blank" rel="noopener" class="menu-cta" onclick="closeMenu()">話してみる →</a>
 </div>
@@ -179,6 +183,7 @@
     <a href="#philosophy">Philosophy</a>
     <a href="#services">Services</a>
     <a href="#profile">Profile</a>
+    <a href="#global">Global</a>
     <a href="https://lin.ee/wD9FKfk" target="_blank" rel="noopener" class="cta-mini keep">話してみる →</a>
   </div>
   <button class="nav-toggle" id="navToggle" onclick="toggleMenu()" aria-label="メニューを開く">
@@ -749,11 +754,124 @@
   </div>
 </section>
 
-<!-- 12 CONTACT -->
+<!-- 12 GLOBAL NETWORK -->
+<section id="global" style="background:var(--bg);">
+  <div class="wrap">
+
+    <!-- Header -->
+    <div class="two-col two-col-40 reveal" style="margin-bottom:72px;">
+      <div>
+        <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">12</span>Global Network</div>
+      </div>
+      <div>
+        <h2 class="sec-title">国境を越えて、<br><em>人と事業をつなぐ。</em></h2>
+        <p style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:52ch;margin:16px 0 0;">フィリピンを中心に、アジア・中東・アフリカ・中南米など複数国に人的ネットワークを持ちます。「海外進出を保証する」のではなく、<span style="font-family:var(--serif);color:var(--fg);">海外展開の最初の一歩を、一緒に整理するところ</span>から動き出します。</p>
+      </div>
+    </div>
+
+    <!-- 対応できること -->
+    <div class="reveal" style="margin-bottom:64px;">
+      <div class="kicker" style="margin-bottom:28px;"><span class="dot"></span>対応できること</div>
+      <div class="str-grid">
+        <div style="padding:32px 28px;background:var(--bg-2);">
+          <div class="mono" style="color:var(--accent);margin-bottom:14px;">01</div>
+          <div style="font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.5;">海外進出の初期相談</div>
+          <div style="font-size:14px;line-height:1.85;color:var(--fg-2);">「海外でこんなことがしたい」という段階から、整理・情報収集・方向性の設計まで相談に乗ります。</div>
+        </div>
+        <div style="padding:32px 28px;background:var(--bg-2);">
+          <div class="mono" style="color:var(--accent);margin-bottom:14px;">02</div>
+          <div style="font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.5;">現地視察の企画・同行・アレンジ</div>
+          <div style="font-size:14px;line-height:1.85;color:var(--fg-2);">現地リサーチ、視察先のアレンジ、同行サポートまで。インドネシア輸入視察など実務経験があります。</div>
+        </div>
+        <div style="padding:32px 28px;background:var(--bg-2);">
+          <div class="mono" style="color:var(--accent);margin-bottom:14px;">03</div>
+          <div style="font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.5;">ビジネスマッチング</div>
+          <div style="font-size:14px;line-height:1.85;color:var(--fg-2);">現地事業者・パートナー・関係者との接点づくり。各国の人脈を活かし、最初のつながりをアレンジします。</div>
+        </div>
+        <div style="padding:32px 28px;background:var(--bg-2);">
+          <div class="mono" style="color:var(--accent);margin-bottom:14px;">04</div>
+          <div style="font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.5;">飲食・サービス業の出店支援</div>
+          <div style="font-size:14px;line-height:1.85;color:var(--fg-2);">フィリピンでの飲食店出店サポートおよび代行運営の実務経験をベースに、具体的な支援が可能です。</div>
+        </div>
+        <div style="padding:32px 28px;background:var(--bg-2);">
+          <div class="mono" style="color:var(--accent);margin-bottom:14px;">05</div>
+          <div style="font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.5;">現地運営・代行運営の相談</div>
+          <div style="font-size:14px;line-height:1.85;color:var(--fg-2);">特にフィリピンでは、現地での実務経験と人脈を活かし、現地運営や代行運営の相談に対応できます。</div>
+        </div>
+        <div style="padding:32px 28px;background:var(--bg-2);">
+          <div class="mono" style="color:var(--accent);margin-bottom:14px;">06</div>
+          <div style="font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.5;">国際交流・プロジェクト設計</div>
+          <div style="font-size:14px;line-height:1.85;color:var(--fg-2);">NPO活動を通じた国際交流企画、海外向け事業構想の整理、クロスボーダープロジェクトの設計支援。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ネットワークのある国・地域 -->
+    <div class="reveal" style="margin-bottom:64px;padding:36px 40px;background:var(--bg-2);border:1px solid var(--line);">
+      <div class="kicker" style="margin-bottom:20px;"><span class="dot"></span>ネットワークのある国・地域</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;">
+        <span style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--fg);color:var(--bg);font-size:14px;font-weight:700;letter-spacing:0.04em;"><span style="color:var(--accent);">★</span>フィリピン<span style="font-family:var(--eng);font-size:10px;color:rgba(244,241,234,0.5);letter-spacing:0.1em;font-weight:400;margin-left:2px;">実務経験あり</span></span>
+        <span style="display:inline-flex;align-items:center;padding:10px 20px;background:var(--bg);border:1px solid var(--line-strong);font-size:14px;letter-spacing:0.02em;">ドバイ（UAE）</span>
+        <span style="display:inline-flex;align-items:center;padding:10px 20px;background:var(--bg);border:1px solid var(--line-strong);font-size:14px;letter-spacing:0.02em;">台湾</span>
+        <span style="display:inline-flex;align-items:center;padding:10px 20px;background:var(--bg);border:1px solid var(--line-strong);font-size:14px;letter-spacing:0.02em;">インドネシア</span>
+        <span style="display:inline-flex;align-items:center;padding:10px 20px;background:var(--bg);border:1px solid var(--line-strong);font-size:14px;letter-spacing:0.02em;">韓国</span>
+        <span style="display:inline-flex;align-items:center;padding:10px 20px;background:var(--bg);border:1px solid var(--line-strong);font-size:14px;letter-spacing:0.02em;">コートジボワール</span>
+        <span style="display:inline-flex;align-items:center;padding:10px 20px;background:var(--bg);border:1px solid var(--line-strong);font-size:14px;letter-spacing:0.02em;">カンボジア</span>
+        <span style="display:inline-flex;align-items:center;padding:10px 20px;background:var(--bg);border:1px solid var(--line-strong);font-size:14px;letter-spacing:0.02em;">モンゴル</span>
+        <span style="display:inline-flex;align-items:center;padding:10px 20px;background:var(--bg);border:1px solid var(--line-strong);font-size:14px;letter-spacing:0.02em;">インド</span>
+        <span style="display:inline-flex;align-items:center;padding:10px 20px;background:var(--bg);border:1px solid var(--line-strong);font-size:14px;letter-spacing:0.02em;">パナマ</span>
+        <span style="display:inline-flex;align-items:center;padding:10px 20px;background:var(--bg);border:1px solid var(--line-strong);font-size:14px;letter-spacing:0.02em;">シンガポール</span>
+      </div>
+      <p style="margin:0;font-size:13px;color:var(--muted);line-height:1.85;">特にフィリピンでは、現地ビジネスの実務経験と人的ネットワークを活かした相談が可能です。その他の国については、相談内容に応じて現地の人脈や関係者との接点づくり、情報収集、視察企画を行うことができます。</p>
+    </div>
+
+    <!-- 経験例 -->
+    <div class="reveal" style="margin-bottom:64px;">
+      <div class="kicker" style="margin-bottom:28px;"><span class="dot"></span>経験例</div>
+      <div class="global-exp-grid">
+        <div style="padding:32px 28px;border:1px solid var(--line-strong);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent);"></div>
+          <div class="mono" style="color:var(--muted);margin-bottom:12px;">Dubai · UAE</div>
+          <div style="font-size:17px;font-weight:700;margin-bottom:12px;line-height:1.5;">プラント工場構想への<br>現地渡航・設計支援</div>
+          <div style="font-size:14px;line-height:1.85;color:var(--fg-2);">ドバイにてプラント工場を建設したいという依頼を受け、現地へ渡航。事業構想の整理から設計への関与まで、プロジェクトの立ち上げ段階に携わった。</div>
+        </div>
+        <div style="padding:32px 28px;border:1px solid var(--line-strong);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent);"></div>
+          <div class="mono" style="color:var(--muted);margin-bottom:12px;">Philippines</div>
+          <div style="font-size:17px;font-weight:700;margin-bottom:12px;line-height:1.5;">飲食店の出店サポート<br>および代行運営</div>
+          <div style="font-size:14px;line-height:1.85;color:var(--fg-2);">フィリピンにて、飲食店の出店サポートおよび代行運営を実施。現地での立ち上げから日常運営まで、実務レベルで関わった経験を持つ。</div>
+        </div>
+        <div style="padding:32px 28px;border:1px solid var(--line-strong);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent);"></div>
+          <div class="mono" style="color:var(--muted);margin-bottom:12px;">Indonesia</div>
+          <div style="font-size:17px;font-weight:700;margin-bottom:12px;line-height:1.5;">輸入資材リサーチのための<br>インドネシア現地視察</div>
+          <div style="font-size:14px;line-height:1.85;color:var(--fg-2);">資材の輸入リサーチを目的として、インドネシアへ渡航し現地視察を実施。現地サプライヤーとの情報収集・接点形成を行った。</div>
+        </div>
+        <div style="padding:32px 28px;border:1px solid var(--line-strong);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent);"></div>
+          <div class="mono" style="color:var(--muted);margin-bottom:12px;">Philippines · Smoky Mountain</div>
+          <div style="font-size:17px;font-weight:700;margin-bottom:12px;line-height:1.5;">環境ビジネス視察と<br>現地財閥関係者との交流</div>
+          <div style="font-size:14px;line-height:1.85;color:var(--fg-2);">フィリピン・スモーキーマウンテンにて、現地財閥関係者との環境ビジネスに関する視察・交流を実施。廃棄物処理・環境事業の可能性を現地で探った。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="reveal" style="padding:52px 48px;background:var(--fg);text-align:center;">
+      <div class="mono" style="color:var(--accent);margin-bottom:16px;letter-spacing:0.2em;">Global Consultation</div>
+      <p style="font-family:var(--serif);font-size:clamp(20px,2.4vw,28px);color:var(--invert-fg);line-height:1.7;margin:0 0 8px;">海外展開は、いきなり大きく始める必要はありません。</p>
+      <p style="font-size:15px;color:var(--invert-muted);line-height:1.8;max-width:48ch;margin:8px auto 36px;">まずは可能性を整理するところから、ご相談ください。<br>進出・視察・ビジネスマッチング・現地パートナー探しなど、内容に応じて柔軟にアレンジします。</p>
+      <a href="https://lin.ee/wD9FKfk" target="_blank" rel="noopener" class="btn" style="background:var(--bg);color:var(--fg);">海外展開を相談する <span class="arrow">→</span></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- 13 CONTACT -->
 <section id="contact" style="background:var(--bg-2);">
   <div class="wrap">
     <div style="margin-bottom:64px;" class="reveal">
-      <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">12</span>Contact</div>
+      <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">13</span>Contact</div>
       <h2 class="sec-title" style="margin-top:24px;">LINEで気軽に<br><em>話しかけてください。</em></h2>
       <p style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:52ch;margin:0;">まずは30分の壁打ちから。<br>整っていない相談でも、まとまっていない想いでも大丈夫です。</p>
     </div>
@@ -930,7 +1048,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ── Active nav link ───────────────────────────────
-const navSections = ['about','roles','philosophy','services','profile','contact'];
+const navSections = ['about','roles','philosophy','services','profile','global','contact'];
 const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 const sectionObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
