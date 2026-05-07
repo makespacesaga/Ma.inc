@@ -462,3 +462,117 @@ section article { overflow: hidden; }
   border: 1px solid var(--invert-line);
 }
 @media (max-width: 880px) { .voice-grid { grid-template-columns: 1fr; } }
+
+/* ─────────────────────────────────────────────
+   MOBILE FINAL POLISH
+   ───────────────────────────────────────────── */
+
+/* Ticker */
+@media (max-width: 640px) {
+  .ticker { padding: 12px 0; }
+  .ticker-track { font-size: 15px; gap: 24px; }
+  .ticker-track span { gap: 24px; }
+}
+
+/* Kicker — reduce letter-spacing on narrow screens */
+@media (max-width: 640px) {
+  .kicker { letter-spacing: 0.08em; }
+}
+
+/* Full-width banner images — add .img-banner class in HTML */
+@media (max-width: 640px) {
+  .img-banner { height: 200px !important; }
+}
+
+/* Voice section header image */
+@media (max-width: 640px) {
+  .voice-header-img { height: 220px !important; }
+}
+
+/* Spark divider */
+@media (max-width: 640px) {
+  .spark-divider img { height: 240px; }
+}
+
+/* Service cards — remove min-height, reduce padding */
+@media (max-width: 640px) {
+  .svc-top article,
+  .svc-grid article {
+    min-height: auto !important;
+    padding: 28px 20px !important;
+  }
+}
+
+/* Roles card inner body */
+@media (max-width: 640px) {
+  .roles-card-pad { padding: 22px 18px !important; }
+}
+
+/* Voice testimonial cards */
+@media (max-width: 640px) {
+  .voice-grid > div { padding: 28px 20px !important; }
+  .voice-grid > div p { font-size: 15px !important; line-height: 1.85 !important; }
+}
+
+/* Contact cells */
+@media (max-width: 720px) {
+  .contact-cell { padding: 36px 22px !important; }
+}
+
+/* AI Era image — portrait is too tall when column stacks */
+@media (max-width: 880px) {
+  .ai-era-img { aspect-ratio: 16/9 !important; }
+}
+
+/* Profile portrait — too tall when column stacks */
+@media (max-width: 880px) {
+  .profile-portrait-img { aspect-ratio: 4/3 !important; max-height: 380px; }
+}
+
+/* Hero portrait — limit height on small mobile */
+@media (max-width: 520px) {
+  .hero-portrait-img { aspect-ratio: 3/2 !important; }
+}
+
+/* Meta-strip — no hover lift on touch */
+@media (hover: none) {
+  .meta-strip > div:hover { transform: none !important; }
+}
+
+/* Dubai strip overlay text */
+@media (max-width: 640px) {
+  .dubai-text { padding: 16px 22px !important; }
+}
+
+/* Easy Entry list items */
+@media (max-width: 640px) {
+  .ee-item { padding-top: 14px !important; padding-bottom: 14px !important; }
+  .ee-item .serif { font-size: 15px !important; }
+}
+
+/* Activities community photos — single col on very small */
+@media (max-width: 480px) {
+  .act-photo-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Overflow guard for long English strings */
+@media (max-width: 640px) {
+  .eng { overflow-wrap: break-word; }
+}
+
+/* Checklist items padding */
+@media (max-width: 640px) {
+  .check-item { padding-top: 14px !important; padding-bottom: 14px !important; }
+  .check-item span:last-child { font-size: 15px !important; }
+}
+
+/* Turning point story padding */
+@media (max-width: 640px) {
+  .tp-cell-label { padding: 20px 0 !important; }
+  .tp-cell-text  { padding: 20px 0 20px 20px !important; }
+}
+
+/* Meta strip font size */
+@media (max-width: 480px) {
+  .meta-num { font-size: 22px !important; }
+}
