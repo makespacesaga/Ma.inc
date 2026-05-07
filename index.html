@@ -144,7 +144,15 @@
 </style>
 </head>
 <body>
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="lm">M</div>
+  <div class="lt">Ma Inc. / Hisamichi Koga</div>
+</div>
 <div id="progress-bar"></div>
+<!-- CUSTOM CURSOR -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
 
 <!-- MOBILE MENU OVERLAY -->
 <div class="mobile-menu" id="mobileMenu">
@@ -184,30 +192,31 @@
 <section class="sp-hero" style="padding-top:140px;padding-bottom:80px;">
   <div class="wrap">
     <div class="hero-grid">
-      <div class="reveal">
-        <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">01 / KOGA HISAMICHI</span>A Trailer, Not a Profile</div>
-        <h1 style="font-size:clamp(48px,8.4vw,124px);line-height:.96;font-weight:700;letter-spacing:-.005em;margin:32px 0 28px;text-wrap:balance;">
+      <div>
+        <div class="kicker hero-anim-1"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">01 / KOGA HISAMICHI</span>A Trailer, Not a Profile</div>
+        <h1 class="hero-anim-2" style="font-size:clamp(48px,8.4vw,124px);line-height:.96;font-weight:700;letter-spacing:-.005em;margin:32px 0 28px;text-wrap:balance;">
           人の<br><span style="font-family:var(--serif);font-weight:500;color:var(--accent);">可能性</span>に<br>火をつける。
         </h1>
-        <p style="font-size:17px;line-height:1.95;color:var(--fg-2);max-width:46ch;margin:0 0 20px;">肩書きでは、収まりきらない。<br>佐賀から世界へ、今日も何かを動かしている。</p>
-        <p style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:46ch;margin:0 0 24px;">一度、<span style="font-family:var(--serif);color:var(--accent);">死を近くに感じた</span>からこそ、<br>自分らしく生きる人を増やしたい。</p>
-        <p style="font-family:var(--serif);font-size:18px;line-height:1.85;color:var(--fg);margin:0 0 12px;">古賀久達。<br>人生をネタに、未来をつくる。</p>
-        <p style="font-size:13px;line-height:1.85;color:var(--muted);max-width:44ch;margin:28px 0 36px;">株式会社Ma 代表取締役 / NPO法人グローバルブリッジ理事長 /<br>Bohol Sunset Properties Inc. 代表</p>
-        <div class="hero-btns" style="display:flex;gap:12px;flex-wrap:wrap;">
+        <hr class="hr-accent hero-anim-3" style="margin-bottom:28px;" />
+        <p class="hero-anim-3" style="font-size:17px;line-height:1.95;color:var(--fg-2);max-width:46ch;margin:0 0 20px;">肩書きでは、収まりきらない。<br>佐賀から世界へ、今日も何かを動かしている。</p>
+        <p class="hero-anim-4" style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:46ch;margin:0 0 24px;">一度、<span style="font-family:var(--serif);color:var(--accent);">死を近くに感じた</span>からこそ、<br>自分らしく生きる人を増やしたい。</p>
+        <p class="hero-anim-4" style="font-family:var(--serif);font-size:18px;line-height:1.85;color:var(--fg);margin:0 0 12px;">古賀久達。<br>人生をネタに、未来をつくる。</p>
+        <p class="hero-anim-4" style="font-size:13px;line-height:1.85;color:var(--muted);max-width:44ch;margin:28px 0 36px;">株式会社Ma 代表取締役 / NPO法人グローバルブリッジ理事長 /<br>Bohol Sunset Properties Inc. 代表</p>
+        <div class="hero-btns hero-anim-5" style="display:flex;gap:12px;flex-wrap:wrap;">
           <a href="https://lin.ee/wD9FKfk" target="_blank" rel="noopener" class="btn">まずは話してみる <span class="arrow">→</span></a>
           <a href="#profile" class="btn btn-ghost">古賀久達を知る</a>
           <a href="https://lin.ee/wD9FKfk" target="_blank" rel="noopener" class="btn btn-ghost">一緒に何か始める</a>
         </div>
       </div>
-      <div style="position:relative;">
+      <div class="hero-anim-img" style="position:relative;">
         <img src="image/koga-hero.png" alt="古賀久達" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;display:block;" />
       </div>
     </div>
-    <div class="meta-strip reveal reveal-delay-2">
-      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Companies</div><div style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="3">3</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">事業体を経営</div></div>
-      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Services</div><div style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;">6+</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">サービス領域</div></div>
-      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Countries</div><div style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;">2ヶ国</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">佐賀 × ボホール</div></div>
-      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">At a time</div><div style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;">1人</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">に火をつける覚悟</div></div>
+    <div class="meta-strip hero-anim-meta">
+      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Companies</div><div style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="3" data-suffix="">3</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">事業体を経営</div></div>
+      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Services</div><div style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="6" data-suffix="+">6+</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">サービス領域</div></div>
+      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Countries</div><div style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="2" data-suffix="ヶ国">2ヶ国</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">佐賀 × ボホール</div></div>
+      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">At a time</div><div style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="1" data-suffix="人">1人</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">に火をつける覚悟</div></div>
     </div>
   </div>
 </section>
@@ -306,7 +315,7 @@
 </section>
 
 <!-- TURNING POINT -->
-<section id="turning-point" class="sp-xl" style="background:linear-gradient(180deg,#0E0E0C 0%,#14130F 100%);color:var(--invert-fg);padding:180px 0;position:relative;overflow:hidden;">
+<section id="turning-point" class="sp-xl grain" style="background:linear-gradient(180deg,#0E0E0C 0%,#14130F 100%);color:var(--invert-fg);padding:180px 0;position:relative;overflow:hidden;">
   <div style="position:absolute;left:0;right:0;top:38%;height:1px;background:linear-gradient(90deg,transparent,rgba(244,241,234,.18),transparent);"></div>
   <div class="wrap-narrow">
     <div class="kicker" style="color:var(--invert-muted);margin-bottom:64px;"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">—</span>A day that changed everything</div>
@@ -363,7 +372,7 @@
 </section>
 
 <!-- 04 PHILOSOPHY -->
-<section id="philosophy" class="sp-lg" style="background:var(--invert-bg);color:var(--invert-fg);padding:160px 0;">
+<section id="philosophy" class="sp-lg grain" style="background:var(--invert-bg);color:var(--invert-fg);padding:160px 0;">
   <div class="wrap-narrow">
     <div style="margin-bottom:56px;"><div class="kicker" style="color:var(--invert-muted);"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">04</span>Philosophy</div></div>
     <h2 style="font-size:clamp(36px,5.6vw,76px);line-height:1.2;font-weight:700;margin:0 0 64px;letter-spacing:.005em;text-wrap:balance;" class="reveal">圧倒的な<span style="font-family:var(--serif);font-weight:500;color:var(--accent);">キャラ売り</span>で、<br>自分らしく生きる。</h2>
@@ -388,7 +397,7 @@
 </section>
 
 <!-- REDEFINITION -->
-<section id="redefinition" class="sp-xl" style="background:var(--invert-bg);color:var(--invert-fg);padding:180px 0;">
+<section id="redefinition" class="sp-xl grain" style="background:var(--invert-bg);color:var(--invert-fg);padding:180px 0;">
   <div class="wrap-narrow">
     <div class="kicker" style="color:var(--invert-muted);margin-bottom:56px;"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">—</span>What we actually sell</div>
     <h2 style="font-size:clamp(36px,5.6vw,76px);line-height:1.25;font-weight:700;margin:0 0 32px;text-wrap:balance;">売っているのは、<br>サービスではなく<br><span style="font-family:var(--serif);font-weight:500;color:var(--accent);">"状態"</span>。</h2>
@@ -415,12 +424,23 @@
     <div style="margin-top:120px;padding-top:56px;border-top:1px solid var(--invert-line);font-family:var(--serif);font-size:18px;line-height:2.1;color:rgba(244,241,234,.78);max-width:48ch;">
       動画も、コーチングも、セミナーも、<br>すべては手段です。<br><br>本当に届けたいのは、<br>その人の中にある可能性が、<br>まわりに伝わり、動き出す<em style="color:var(--accent);font-style:normal;">瞬間</em>です。
     </div>
-    <div style="margin-top:140px;text-align:center;padding-top:56px;border-top:1px solid var(--accent);">
+    <div style="margin-top:140px;text-align:center;padding-top:56px;border-top:1px solid var(--accent);" class="reveal">
       <div class="mono" style="color:var(--accent);margin-bottom:40px;font-size:11px;">— IN THE END —</div>
       <p style="font-family:var(--serif);font-size:clamp(28px,4vw,52px);line-height:1.5;font-weight:500;margin:0;color:var(--invert-fg);text-wrap:balance;">すべては、<br><span style="color:var(--accent);">人の可能性に火をつける</span>ために。</p>
     </div>
   </div>
 </section>
+<!-- SPARK DIVIDER -->
+<div class="spark-divider reveal">
+  <img src="image/spark-flame.jpg" alt="人の可能性に火をつける" />
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(14,14,12,0.6) 0%,transparent 40%,transparent 60%,rgba(14,14,12,0.6) 100%);"></div>
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+    <div style="text-align:center;">
+      <div class="mono" style="color:var(--accent);font-size:10px;letter-spacing:0.28em;margin-bottom:20px;">THE SPARK THAT CHANGES EVERYTHING</div>
+      <p style="font-family:var(--serif);font-size:clamp(24px,3.5vw,48px);color:#F4F1EA;margin:0;line-height:1.5;text-shadow:0 2px 30px rgba(0,0,0,0.6);">人の可能性に、<br>火をつける。</p>
+    </div>
+  </div>
+</div>
 
 <!-- 05 AI ERA -->
 <section>
@@ -611,8 +631,51 @@
   </div>
 </section>
 
+<!-- VOICE -->
+<section style="background:var(--invert-bg);color:var(--invert-fg);padding:0;overflow:hidden;">
+  <div style="position:relative;overflow:hidden;">
+    <img src="image/consultation-scene.jpg" alt="コンサルテーション" style="width:100%;height:380px;object-fit:cover;object-position:center 35%;display:block;filter:brightness(0.55);" />
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,14,12,0.3),rgba(14,14,12,0.7));"></div>
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;">
+      <div class="kicker reveal" style="color:var(--invert-muted);"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">—</span>Voice</div>
+      <h2 class="reveal reveal-delay-1" style="font-size:clamp(32px,4.5vw,64px);font-weight:700;color:var(--invert-fg);margin:0;text-align:center;line-height:1.2;">変わった人たちの声。</h2>
+    </div>
+  </div>
+  <div class="wrap" style="padding-top:80px;padding-bottom:96px;">
+    <div class="voice-grid">
+      <div style="background:#111110;padding:48px 40px;display:flex;flex-direction:column;gap:24px;" class="reveal">
+        <div style="font-family:var(--serif);font-size:52px;color:var(--accent);line-height:1;margin-bottom:-8px;">"</div>
+        <p style="font-family:var(--serif);font-size:17px;line-height:2;color:rgba(244,241,234,0.88);margin:0;flex:1;">古賀さんに話してみて、<strong style="color:var(--invert-fg);">自分が何をしたいか</strong>が初めてはっきりした。ブランディングってこういうことか、と腑に落ちました。</p>
+        <div style="padding-top:20px;border-top:1px solid var(--invert-line);">
+          <div style="font-size:13px;font-weight:600;color:var(--invert-fg);">30代・個人事業主</div>
+          <div class="mono" style="color:var(--accent);font-size:10px;margin-top:4px;">Personal Branding</div>
+        </div>
+      </div>
+      <div style="background:#111110;padding:48px 40px;display:flex;flex-direction:column;gap:24px;" class="reveal reveal-delay-1">
+        <div style="font-family:var(--serif);font-size:52px;color:var(--accent);line-height:1;margin-bottom:-8px;">"</div>
+        <p style="font-family:var(--serif);font-size:17px;line-height:2;color:rgba(244,241,234,0.88);margin:0;flex:1;">話して終わりじゃなく、「明日から何をするか」まで決めてくれる。<strong style="color:var(--invert-fg);">コーチングが行動に直結</strong>している感覚が全然違う。</p>
+        <div style="padding-top:20px;border-top:1px solid var(--invert-line);">
+          <div style="font-size:13px;font-weight:600;color:var(--invert-fg);">40代・中小企業経営者</div>
+          <div class="mono" style="color:var(--accent);font-size:10px;margin-top:4px;">Human Coaching</div>
+        </div>
+      </div>
+      <div style="background:#111110;padding:48px 40px;display:flex;flex-direction:column;gap:24px;" class="reveal reveal-delay-2">
+        <div style="font-family:var(--serif);font-size:52px;color:var(--accent);line-height:1;margin-bottom:-8px;">"</div>
+        <p style="font-family:var(--serif);font-size:17px;line-height:2;color:rgba(244,241,234,0.88);margin:0;flex:1;">会社の想いを動画で発信するようになって、<strong style="color:var(--invert-fg);">採用の質が明らかに変わった。</strong>「この会社に入りたい」と言ってくれる人が増えました。</p>
+        <div style="padding-top:20px;border-top:1px solid var(--invert-line);">
+          <div style="font-size:13px;font-weight:600;color:var(--invert-fg);">50代・製造業</div>
+          <div class="mono" style="color:var(--accent);font-size:10px;margin-top:4px;">Corporate PR & Video</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:56px;" class="reveal">
+      <a href="https://lin.ee/wD9FKfk" target="_blank" rel="noopener" class="btn btn-invert" style="font-size:15px;">あなたも話してみる <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- 09 ACTIVITIES -->
-<section id="activities" class="sp-lg" style="background:var(--invert-bg);color:var(--invert-fg);padding:120px 0;">
+<section id="activities" class="sp-lg grain" style="background:var(--invert-bg);color:var(--invert-fg);padding:120px 0;">
   <div class="wrap">
     <div class="kicker" style="color:var(--invert-muted);"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">09</span>Activities</div>
     <h2 style="font-size:clamp(40px,6vw,92px);font-weight:700;margin:24px 0 56px;line-height:1.1;font-family:var(--eng);letter-spacing:-.02em;">Activities.</h2>
@@ -705,7 +768,7 @@
           <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://lin.ee/wD9FKfk&margin=8&color=0E0E0C&bgcolor=FFFFFF" alt="LINE QRコード" style="width:180px;height:180px;display:block;" />
         </div>
         <div style="display:flex;flex-direction:column;gap:12px;width:100%;max-width:320px;">
-          <a href="https://lin.ee/wD9FKfk" target="_blank" rel="noopener"
+          <a href="https://lin.ee/wD9FKfk" target="_blank" rel="noopener" class="line-cta-main"
             style="display:flex;align-items:center;justify-content:center;gap:14px;padding:20px 32px;background:#06C755;color:#fff;font-size:16px;font-weight:700;text-decoration:none;letter-spacing:0.04em;transition:opacity 0.2s;"
             onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.914 1.455 5.51 3.738 7.22.164.125.263.315.267.52l.054 1.813c.017.566.614.93 1.127.681l2.025-.949a.534.534 0 01.354-.033c.78.213 1.607.328 2.435.328 5.523 0 10-4.145 10-9.243S17.523 2 12 2z"/></svg>
@@ -742,7 +805,7 @@
 </style>
 
 <!-- 13 FINAL CTA -->
-<section class="sp-lg" style="position:relative;color:var(--invert-fg);padding:160px 0;overflow:hidden;">
+<section class="sp-lg grain" style="position:relative;color:var(--invert-fg);padding:160px 0;overflow:hidden;">
   <img src="image/cta-horizon.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:0;display:block;filter:brightness(0.45);" />
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,14,12,0.4),rgba(14,14,12,0.7));z-index:1;"></div>
   <div class="wrap-narrow" style="text-align:center;position:relative;z-index:2;">
@@ -796,22 +859,75 @@
 </footer>
 
 <script>
+// ── Custom cursor ─────────────────────────────────
+const cursorDot  = document.getElementById('cursor-dot');
+const cursorRing = document.getElementById('cursor-ring');
+if (cursorDot && cursorRing && window.matchMedia('(hover:hover)').matches) {
+  let rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    cursorDot.style.left  = e.clientX + 'px';
+    cursorDot.style.top   = e.clientY + 'px';
+    rx += (e.clientX - rx) * 0.14;
+    ry += (e.clientY - ry) * 0.14;
+    cursorRing.style.left = rx + 'px';
+    cursorRing.style.top  = ry + 'px';
+  });
+  (function loop() {
+    cursorRing.style.left = rx + 'px';
+    cursorRing.style.top  = ry + 'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a, button, [role="button"]').forEach(el => {
+    el.addEventListener('mouseenter', () => cursorRing.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovered'));
+  });
+  document.addEventListener('mouseleave', () => {
+    cursorDot.style.opacity = '0'; cursorRing.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', () => {
+    cursorDot.style.opacity = '1'; cursorRing.style.opacity = '1';
+  });
+}
+
 // ── Reveal on scroll ──────────────────────────────
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+// ── Counter animation ─────────────────────────────
+const counterEls = document.querySelectorAll('[data-count]');
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    let start = null;
+    const duration = 1400;
+    const step = ts => {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+counterEls.forEach(el => counterObserver.observe(el));
+
 // ── Progress bar + Back to top ────────────────────
 const progressBar = document.getElementById('progress-bar');
 const backTop = document.getElementById('back-top');
+const nav = document.querySelector('.nav');
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
   const total = document.documentElement.scrollHeight - window.innerHeight;
-  const pct = total > 0 ? (scrolled / total) * 100 : 0;
-  progressBar.style.width = pct + '%';
-  if (scrolled > 600) backTop.classList.add('visible');
-  else backTop.classList.remove('visible');
+  progressBar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+  backTop.classList.toggle('visible', scrolled > 600);
+  nav.classList.toggle('scrolled', scrolled > 60);
 }, { passive: true });
 
 // ── Active nav link ───────────────────────────────
@@ -821,16 +937,11 @@ const sectionObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const id = entry.target.id;
-      navLinks.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-      });
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
     }
   });
-}, { threshold: 0.25 });
-navSections.forEach(id => {
-  const el = document.getElementById(id);
-  if (el) sectionObserver.observe(el);
-});
+}, { threshold: 0.3 });
+navSections.forEach(id => { const el = document.getElementById(id); if (el) sectionObserver.observe(el); });
 
 // ── Hamburger menu ────────────────────────────────
 const navToggle = document.getElementById('navToggle');
