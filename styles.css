@@ -147,14 +147,18 @@ section { padding: 120px 0; position: relative; }
 }
 .btn-invert-ghost:hover { background: var(--invert-fg); color: var(--invert-bg); }
 
+/* === Heading defaults === */
+h2, h3 { text-wrap: balance; }
+
 /* === Section titles === */
 .sec-title {
-  font-size: clamp(34px, 5vw, 64px);
+  font-size: clamp(28px, 4.2vw, 58px);
   line-height: 1.25;
   font-weight: 700;
   letter-spacing: 0.01em;
   margin: 0 0 32px 0;
-  text-wrap: pretty;
+  text-wrap: balance;
+  overflow-wrap: break-word;
 }
 .sec-title em {
   font-style: normal;
@@ -604,28 +608,34 @@ section article { overflow: hidden; }
 
 /* ── Text & heading fixes for narrow mobile ─────── */
 
-/* Mobile line-break utility */
+/* Line-break utilities */
 .br-mob { display: none; }
 @media (max-width: 640px) { .br-mob { display: inline; } }
+.br-pc  { display: inline; }
+@media (max-width: 640px) { .br-pc  { display: none; } }
 
-/* Section headings — scale with vw below 480px so they don't overflow */
+/* Section headings — fine-tune at very small screens */
 @media (max-width: 480px) {
-  .sec-title { font-size: clamp(22px, 6.5vw, 64px) !important; line-height: 1.3; }
+  .sec-title { font-size: clamp(24px, 7.5vw, 30px) !important; line-height: 1.3; }
+}
+@media (max-width: 640px) {
+  body { word-break: auto-phrase; overflow-wrap: break-word; }
+  p, li { max-width: 100%; }
 }
 
 /* Philosophy h2 */
 @media (max-width: 640px) {
-  #philosophy h2 { font-size: clamp(24px, 5.6vw, 76px) !important; }
+  #philosophy h2 { font-size: 34px !important; }
 }
 
 /* Redefinition strikethrough lines */
 @media (max-width: 640px) {
-  .redef-strike { font-size: clamp(14px, 3.2vw, 40px) !important; }
+  .redef-strike { font-size: 16px !important; }
 }
 
 /* Redefinition answer lines */
 @media (max-width: 640px) {
-  .redef-answer { font-size: clamp(22px, 4.4vw, 56px) !important; }
+  .redef-answer { font-size: 28px !important; }
 }
 
 /* Profile quote box */
@@ -650,4 +660,666 @@ section article { overflow: hidden; }
 }
 @media (hover: none), (pointer: coarse) {
   .tilt-card { will-change: auto; transform-style: flat; }
+}
+
+/* === Conversion polish === */
+::selection {
+  background: rgba(173, 127, 45, 0.26);
+  color: var(--fg);
+}
+
+.hero-grid {
+  min-height: min(760px, calc(100vh - 180px));
+  align-items: center !important;
+}
+
+.hero-title {
+  max-width: 9.2ch;
+}
+
+.hero-lead {
+  font-size: 22px !important;
+  line-height: 1.72 !important;
+  color: var(--fg) !important;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.hero-sublead {
+  font-size: 17px !important;
+  line-height: 2 !important;
+}
+
+.hero-signature {
+  padding-left: 18px;
+  border-left: 2px solid var(--accent);
+}
+
+.hero-portrait-img {
+  box-shadow: 0 28px 80px rgba(14,14,12,0.16);
+}
+
+.meta-strip {
+  margin-top: 72px !important;
+}
+
+.meta-strip > div {
+  padding: 18px 0 0;
+}
+
+.btn {
+  border-radius: 2px;
+  min-height: 56px;
+  box-shadow: 0 10px 28px rgba(14,14,12,0.08);
+}
+
+.btn:hover {
+  box-shadow: 0 14px 34px rgba(14,14,12,0.12);
+}
+
+.btn-ghost,
+.btn-invert-ghost {
+  box-shadow: none;
+}
+
+.sec-title {
+  max-width: 12ch;
+}
+
+.sec-body {
+  font-size: 17px;
+}
+
+#services .svc-top article:first-child,
+#services .svc-top article:nth-child(2) {
+  position: relative;
+}
+
+#services .svc-top article:first-child::after,
+#services .svc-top article:nth-child(2)::after {
+  content: "おすすめ";
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  padding: 5px 10px;
+  border: 1px solid rgba(173,127,45,0.35);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+#easy-entry {
+  background:
+    linear-gradient(90deg, rgba(173,127,45,0.08), transparent 38%),
+    var(--bg);
+}
+
+#contact .line-cta-main {
+  min-height: 64px;
+  box-shadow: 0 18px 44px rgba(6,199,85,0.22);
+}
+
+@media (max-width: 880px) {
+  .hero-grid {
+    min-height: auto;
+  }
+
+  .hero-title {
+    max-width: 8.8ch;
+  }
+
+  .meta-strip {
+    margin-top: 48px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    line-height: 1.78;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-title {
+    font-size: 46px !important;
+    line-height: 1.03 !important;
+    margin-top: 26px !important;
+  }
+
+  .hero-lead {
+    font-size: 18px !important;
+    line-height: 1.78 !important;
+  }
+
+  .hero-sublead {
+    font-size: 15.5px !important;
+    line-height: 1.9 !important;
+  }
+
+  .hero-signature {
+    font-size: 16px !important;
+  }
+
+  .hero-btns {
+    gap: 10px !important;
+  }
+
+  .btn {
+    min-height: 54px;
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+
+  .meta-strip > div {
+    padding-top: 14px;
+  }
+
+  .meta-strip > div > div:last-child {
+    font-size: 12px !important;
+    line-height: 1.55;
+  }
+
+  .sec-title {
+    max-width: 11ch;
+  }
+
+  #services .svc-top article:first-child::after,
+  #services .svc-top article:nth-child(2)::after {
+    top: 18px;
+    right: 18px;
+  }
+}
+
+/* === Final responsive typography system === */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 16px;
+}
+
+.hero-title {
+  font-size: 104px !important;
+  line-height: 0.98 !important;
+  letter-spacing: 0 !important;
+}
+
+.sec-title {
+  font-size: 58px !important;
+  line-height: 1.22 !important;
+  letter-spacing: 0 !important;
+}
+
+#turning-point h2,
+#philosophy h2,
+#redefinition h2,
+#corporate-pr h2,
+#founder-story h2,
+#activities h2,
+section.sp-lg.grain h2 {
+  font-size: 72px !important;
+  line-height: 1.16 !important;
+  letter-spacing: 0 !important;
+}
+
+#legacy h2 {
+  font-size: 42px !important;
+  line-height: 1.62 !important;
+}
+
+#corporate-pr h3.sec-title {
+  font-size: 52px !important;
+  line-height: 1.24 !important;
+}
+
+.sec-body,
+.sec-body p,
+#services > .wrap > .two-col p,
+#easy-entry p,
+#contact > .wrap > div:first-child p {
+  font-size: 17px !important;
+  line-height: 1.95 !important;
+}
+
+.roles-card-pad > div:nth-child(2) > div:first-child,
+.svc-top article > div:nth-child(2) > div:first-child {
+  font-size: 24px !important;
+  line-height: 1.38 !important;
+}
+
+.svc-grid article > div:nth-child(2) > div:first-child,
+.str-grid > div > div:nth-child(2) {
+  font-size: 20px !important;
+  line-height: 1.45 !important;
+}
+
+.roles-card-pad p,
+.svc-top article p,
+.svc-grid article p,
+.str-grid p,
+.check-item span:last-child,
+.ee-item .serif {
+  font-size: 15.5px !important;
+  line-height: 1.85 !important;
+}
+
+.voice-grid > div p {
+  font-size: 18px !important;
+  line-height: 1.95 !important;
+}
+
+.profile-quote {
+  font-size: 18px !important;
+  line-height: 1.95 !important;
+}
+
+.profile-quote span {
+  font-size: 24px !important;
+}
+
+@media (max-width: 1199px) {
+  .hero-title {
+    font-size: 86px !important;
+  }
+
+  .sec-title {
+    font-size: 50px !important;
+  }
+
+  #turning-point h2,
+  #philosophy h2,
+  #redefinition h2,
+  #corporate-pr h2,
+  #founder-story h2,
+  #activities h2,
+  section.sp-lg.grain h2 {
+    font-size: 60px !important;
+  }
+}
+
+@media (max-width: 880px) {
+  .hero-title {
+    font-size: 64px !important;
+    line-height: 1.04 !important;
+  }
+
+  .hero-lead {
+    font-size: 20px !important;
+    line-height: 1.78 !important;
+  }
+
+  .hero-sublead,
+  .sec-body,
+  .sec-body p,
+  #services > .wrap > .two-col p,
+  #easy-entry p,
+  #contact > .wrap > div:first-child p {
+    font-size: 16px !important;
+    line-height: 1.9 !important;
+  }
+
+  .sec-title {
+    font-size: 42px !important;
+    line-height: 1.26 !important;
+  }
+
+  #turning-point h2,
+  #philosophy h2,
+  #redefinition h2,
+  #corporate-pr h2,
+  #founder-story h2,
+  #activities h2,
+  section.sp-lg.grain h2 {
+    font-size: 46px !important;
+    line-height: 1.22 !important;
+  }
+
+  #legacy h2 {
+    font-size: 30px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 15.5px;
+  }
+
+  .kicker {
+    font-size: 10px !important;
+    line-height: 1.6 !important;
+  }
+
+  .hero-title {
+    font-size: 46px !important;
+    line-height: 1.08 !important;
+    max-width: 8.6ch;
+  }
+
+  .hero-lead {
+    font-size: 18px !important;
+    line-height: 1.72 !important;
+  }
+
+  .hero-sublead,
+  .hero-signature {
+    font-size: 15.5px !important;
+    line-height: 1.86 !important;
+  }
+
+  .sec-title {
+    font-size: 32px !important;
+    line-height: 1.32 !important;
+    max-width: 12ch;
+  }
+
+  #turning-point h2,
+  #philosophy h2,
+  #redefinition h2,
+  #corporate-pr h2,
+  #founder-story h2,
+  #activities h2,
+  section.sp-lg.grain h2 {
+    font-size: 34px !important;
+    line-height: 1.28 !important;
+  }
+
+  #legacy h2 {
+    font-size: 24px !important;
+    line-height: 1.58 !important;
+  }
+
+  #corporate-pr h3.sec-title {
+    font-size: 31px !important;
+    line-height: 1.32 !important;
+  }
+
+  .sec-body,
+  .sec-body p,
+  #services > .wrap > .two-col p,
+  #easy-entry p,
+  #contact > .wrap > div:first-child p {
+    font-size: 15.5px !important;
+    line-height: 1.88 !important;
+  }
+
+  .roles-card-pad > div:nth-child(2) > div:first-child,
+  .svc-top article > div:nth-child(2) > div:first-child {
+    font-size: 20px !important;
+    line-height: 1.42 !important;
+  }
+
+  .svc-grid article > div:nth-child(2) > div:first-child,
+  .str-grid > div > div:nth-child(2) {
+    font-size: 18px !important;
+    line-height: 1.42 !important;
+  }
+
+  .roles-card-pad p,
+  .svc-top article p,
+  .svc-grid article p,
+  .str-grid p,
+  .check-item span:last-child,
+  .ee-item .serif,
+  .voice-grid > div p {
+    font-size: 15px !important;
+    line-height: 1.82 !important;
+  }
+
+  .profile-quote {
+    font-size: 16px !important;
+    line-height: 1.9 !important;
+  }
+
+  .profile-quote span {
+    font-size: 19px !important;
+  }
+
+  .meta-num {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-title {
+    font-size: 42px !important;
+  }
+
+  .sec-title {
+    font-size: 29px !important;
+  }
+
+  #turning-point h2,
+  #philosophy h2,
+  #redefinition h2,
+  #corporate-pr h2,
+  #founder-story h2,
+  #activities h2,
+  section.sp-lg.grain h2 {
+    font-size: 31px !important;
+  }
+}
+
+/* === Inline type normalization === */
+.mobile-menu a {
+  font-size: 34px !important;
+  line-height: 1.18 !important;
+}
+
+.dubai-text > div:last-child {
+  font-size: 32px !important;
+}
+
+.tp-close > p {
+  font-size: 30px !important;
+}
+
+.tp-close-box p {
+  font-size: 44px !important;
+}
+
+.redef-strike {
+  font-size: 34px !important;
+  line-height: 1.45 !important;
+}
+
+.redef-answer {
+  font-size: 48px !important;
+  line-height: 1.34 !important;
+}
+
+#redefinition .wrap-narrow > p {
+  font-size: 46px !important;
+  line-height: 1.48 !important;
+}
+
+#legacy p {
+  font-size: 18px !important;
+}
+
+#legacy h3 {
+  font-size: 58px !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0 !important;
+}
+
+#legacy .wrap-narrow > div:nth-of-type(2) p:nth-of-type(2) {
+  font-size: 56px !important;
+}
+
+#legacy .wrap-narrow > div:nth-of-type(3) p:nth-of-type(2),
+#legacy .wrap-narrow > div:nth-of-type(4) p:nth-of-type(3),
+#legacy .wrap-narrow > div:nth-of-type(5) p:nth-of-type(1),
+#legacy .wrap-narrow > div:nth-of-type(6) p:nth-of-type(3) {
+  font-size: 28px !important;
+}
+
+#legacy .wrap-narrow > div:nth-of-type(4) p:nth-of-type(2),
+#legacy .wrap-narrow > div:nth-of-type(7) p:nth-of-type(2) {
+  font-size: 48px !important;
+}
+
+#legacy .wrap-narrow > div:nth-of-type(6) p:nth-of-type(2) {
+  font-size: 72px !important;
+}
+
+.spark-divider p {
+  font-size: 42px !important;
+}
+
+#corporate-pr h3,
+#founder-story h3 {
+  font-size: 50px !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+}
+
+#corporate-pr p.serif,
+#founder-story p.serif,
+#global p.serif {
+  font-size: 22px !important;
+  line-height: 1.72 !important;
+}
+
+.njs-lines > div {
+  font-size: 30px !important;
+}
+
+.community-stars-banner p {
+  font-size: 40px !important;
+}
+
+.voice-grid + div,
+.voice-grid + div .btn {
+  font-size: 16px !important;
+}
+
+.voice-grid ~ a,
+#checklist + section h2 {
+  font-size: 58px !important;
+}
+
+@media (max-width: 880px) {
+  .mobile-menu a {
+    font-size: 32px !important;
+  }
+
+  .dubai-text > div:last-child {
+    font-size: 26px !important;
+  }
+
+  .tp-close > p {
+    font-size: 24px !important;
+  }
+
+  .tp-close-box p {
+    font-size: 32px !important;
+  }
+
+  .redef-strike {
+    font-size: 24px !important;
+  }
+
+  .redef-answer,
+  #redefinition .wrap-narrow > p {
+    font-size: 34px !important;
+  }
+
+  #legacy h3,
+  #corporate-pr h3,
+  #founder-story h3 {
+    font-size: 38px !important;
+  }
+
+  .spark-divider p,
+  .community-stars-banner p {
+    font-size: 30px !important;
+  }
+
+  .njs-lines > div {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .mobile-menu a {
+    font-size: 28px !important;
+    line-height: 1.22 !important;
+  }
+
+  .dubai-text > div:last-child {
+    font-size: 22px !important;
+  }
+
+  .tp-close > p {
+    font-size: 21px !important;
+  }
+
+  .tp-close-box p {
+    font-size: 27px !important;
+  }
+
+  .redef-strike {
+    font-size: 16px !important;
+  }
+
+  .redef-answer,
+  #redefinition .wrap-narrow > p {
+    font-size: 28px !important;
+  }
+
+  #legacy p {
+    font-size: 15.5px !important;
+    line-height: 1.9 !important;
+  }
+
+  #legacy h3,
+  #corporate-pr h3,
+  #founder-story h3 {
+    font-size: 31px !important;
+    line-height: 1.26 !important;
+  }
+
+  #legacy .wrap-narrow > div:nth-of-type(2) p:nth-of-type(2),
+  #legacy .wrap-narrow > div:nth-of-type(4) p:nth-of-type(2),
+  #legacy .wrap-narrow > div:nth-of-type(7) p:nth-of-type(2) {
+    font-size: 31px !important;
+    line-height: 1.38 !important;
+  }
+
+  #legacy .wrap-narrow > div:nth-of-type(3) p:nth-of-type(2),
+  #legacy .wrap-narrow > div:nth-of-type(4) p:nth-of-type(3),
+  #legacy .wrap-narrow > div:nth-of-type(5) p:nth-of-type(1),
+  #legacy .wrap-narrow > div:nth-of-type(6) p:nth-of-type(3) {
+    font-size: 20px !important;
+    line-height: 1.65 !important;
+  }
+
+  #legacy .wrap-narrow > div:nth-of-type(6) p:nth-of-type(2) {
+    font-size: 36px !important;
+    line-height: 1.18 !important;
+  }
+
+  #corporate-pr p.serif,
+  #founder-story p.serif,
+  #global p.serif {
+    font-size: 17px !important;
+  }
+
+  .spark-divider p,
+  .community-stars-banner p {
+    font-size: 24px !important;
+    line-height: 1.55 !important;
+  }
+
+  .njs-lines > div {
+    font-size: 20px !important;
+    line-height: 1.55 !important;
+  }
+
+  .voice-grid ~ a,
+  #checklist + section h2 {
+    font-size: 32px !important;
+  }
 }

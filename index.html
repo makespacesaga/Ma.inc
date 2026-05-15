@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>株式会社Ma — 古賀久達 / 人の可能性に火をつける。</title>
-<meta name="description" content="佐賀から世界へ。株式会社Ma代表・古賀久達のオフィシャルサイト。キャラ売りブランディング、人間力コーチング、コミュニケーション研修、動画制作・SNS運用サポート。" />
+<title>株式会社Ma — 社長・企業・個人の魅力を、選ばれる理由に変える。</title>
+<meta name="description" content="株式会社Ma代表・古賀久達。経営者PR、キャラ売りブランディング、人間力コーチング、コミュニケーション研修、動画制作・SNS運用まで、あなたの魅力を言語化し、選ばれる導線に変えます。" />
 <!-- OGP -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="株式会社Ma — 古賀久達 / 人の可能性に火をつける。" />
-<meta property="og:description" content="佐賀から世界へ。人の可能性に火をつける。キャラ売りブランディング・コーチング・国際活動。株式会社Ma 代表取締役 古賀久達。" />
+<meta property="og:title" content="株式会社Ma — 社長・企業・個人の魅力を、選ばれる理由に変える。" />
+<meta property="og:description" content="想いはあるのに伝わっていない。その魅力を言語化し、SNS・動画・LP・研修・コーチングで選ばれる導線に変える。株式会社Ma 代表取締役 古賀久達。" />
 <meta property="og:url" content="https://ma-inc.netlify.app/" />
 <meta property="og:image" content="https://ma-inc.netlify.app/image/koga-hero.png" />
 <meta property="og:locale" content="ja_JP" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="株式会社Ma — 古賀久達 / 人の可能性に火をつける。" />
-<meta name="twitter:description" content="佐賀から世界へ。人の可能性に火をつける。株式会社Ma 代表取締役 古賀久達。" />
+<meta name="twitter:title" content="株式会社Ma — 社長・企業・個人の魅力を、選ばれる理由に変える。" />
+<meta name="twitter:description" content="魅力を言語化し、発信と行動に変える。株式会社Ma 代表取締役 古賀久達。" />
 <meta name="twitter:image" content="https://ma-inc.netlify.app/image/koga-hero.png" />
 <!-- Favicon -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230E0E0C'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' font-weight='600' fill='%23F4F1EA'>M</text></svg>" />
@@ -53,7 +53,11 @@
 .two-col-profile { grid-template-columns: 1fr 1.2fr; }
 .two-col-check { grid-template-columns: 1fr 1.2fr; }
 .two-col-ee { grid-template-columns: 0.85fr 1.15fr; }
-@media (max-width: 880px) { .two-col { grid-template-columns: 1fr !important; gap: 32px; } }
+@media (max-width: 880px) { .two-col { grid-template-columns: 1fr !important; gap: 32px !important; } }
+/* ── New section inner block padding on mobile ── */
+@media (max-width: 720px) {
+  #corporate-pr > div, #founder-story > div { padding-top: 72px !important; padding-bottom: 72px !important; }
+}
 /* ── Activities ── */
 .act-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px 64px; border-top: 1px solid var(--invert-line); }
 @media (max-width: 720px) { .act-grid { grid-template-columns: 1fr; } }
@@ -199,18 +203,17 @@
     <div class="hero-grid">
       <div>
         <div class="kicker hero-anim-1"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">01 / KOGA HISAMICHI</span>A Trailer, Not a Profile</div>
-        <h1 class="hero-anim-2" style="font-size:clamp(48px,8.4vw,124px);line-height:.96;font-weight:700;letter-spacing:-.005em;margin:32px 0 28px;text-wrap:balance;">
-          人の<br><span style="font-family:var(--serif);font-weight:500;color:var(--accent);">可能性</span>に<br>火をつける。
+        <h1 class="hero-anim-2 hero-title" style="font-size:clamp(48px,8.4vw,124px);line-height:.96;font-weight:700;letter-spacing:-.005em;margin:32px 0 28px;text-wrap:balance;">
+          あなたの<br><span style="font-family:var(--serif);font-weight:500;color:var(--accent);">魅力</span>を、<br>選ばれる理由に。
         </h1>
         <hr class="hr-accent hero-anim-3" style="margin-bottom:28px;" />
-        <p class="hero-anim-3" style="font-size:17px;line-height:1.95;color:var(--fg-2);max-width:46ch;margin:0 0 20px;">肩書きでは、収まりきらない。<br>佐賀から世界へ、今日も何かを動かしている。</p>
-        <p class="hero-anim-4" style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:46ch;margin:0 0 24px;">一度、<span style="font-family:var(--serif);color:var(--accent);">死を近くに感じた</span>からこそ、<br>自分らしく生きる人を増やしたい。</p>
-        <p class="hero-anim-4" style="font-family:var(--serif);font-size:18px;line-height:1.85;color:var(--fg);margin:0 0 12px;">古賀久達。<br>人生をネタに、未来をつくる。</p>
+        <p class="hero-anim-3 hero-lead" style="font-size:17px;line-height:1.95;color:var(--fg-2);max-width:46ch;margin:0 0 20px;">想いはある。実績もある。<br>でも、まだ伝わりきっていない。</p>
+        <p class="hero-anim-4 hero-sublead" style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:46ch;margin:0 0 24px;">社長の人柄、会社の空気、個人の強みを言語化し、SNS・動画・LP・研修・コーチングで<span style="font-family:var(--serif);color:var(--accent);">「この人に頼みたい」</span>へ変えていきます。</p>
+        <p class="hero-anim-4 hero-signature" style="font-family:var(--serif);font-size:18px;line-height:1.85;color:var(--fg);margin:0 0 12px;">古賀久達。<br>人の可能性に火をつけ、動き出す理由をつくる。</p>
         <p class="hero-anim-4" style="font-size:13px;line-height:1.85;color:var(--muted);max-width:44ch;margin:28px 0 36px;">株式会社Ma 代表取締役 / NPO法人グローバルブリッジ理事長 /<br>Bohol Sunset Properties Inc. 代表</p>
         <div class="hero-btns hero-anim-5" style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="https://lin.ee/wD9FKfk" target="_blank" rel="noopener" class="btn">まずは話してみる <span class="arrow">→</span></a>
-          <a href="#profile" class="btn btn-ghost">古賀久達を知る</a>
-          <a href="https://lin.ee/wD9FKfk" target="_blank" rel="noopener" class="btn btn-ghost">一緒に何か始める</a>
+          <a href="https://lin.ee/wD9FKfk" target="_blank" rel="noopener" class="btn">30分の壁打ちをする <span class="arrow">→</span></a>
+          <a href="#services" class="btn btn-ghost">できることを見る</a>
         </div>
       </div>
       <div class="hero-anim-img" style="position:relative;">
@@ -218,10 +221,10 @@
       </div>
     </div>
     <div class="meta-strip hero-anim-meta">
-      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Companies</div><div class="meta-num" style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="3" data-suffix="">3</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">事業体を経営</div></div>
-      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Services</div><div class="meta-num" style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="6" data-suffix="+">6+</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">サービス領域</div></div>
-      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Network</div><div class="meta-num" style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="10" data-suffix="ヶ国+">10ヶ国+</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">フィリピンを中心に</div></div>
-      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">At a time</div><div class="meta-num" style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="1" data-suffix="人">1人</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">に火をつける覚悟</div></div>
+      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Business</div><div class="meta-num" style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="3" data-suffix="">3</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">経営・NPO・海外法人を横断</div></div>
+      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Support</div><div class="meta-num" style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="6" data-suffix="+">6+</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">PR・SNS・研修・コーチング</div></div>
+      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">Network</div><div class="meta-num" style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="10" data-suffix="ヶ国+">10ヶ国+</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">海外ネットワーク</div></div>
+      <div><div class="mono" style="color:var(--muted);margin-bottom:8px;">First step</div><div class="meta-num" style="font-size:28px;font-weight:700;font-family:var(--eng);letter-spacing:-.02em;" data-count="30" data-suffix="分">30分</div><div style="font-size:13px;color:var(--fg-2);margin-top:4px;">壁打ちから相談可能</div></div>
     </div>
   </div>
 </section>
@@ -250,9 +253,9 @@
     <div class="two-col two-col-40">
       <div class="reveal"><div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">02</span>About</div></div>
       <div class="reveal reveal-delay-1">
-        <h2 class="sec-title">何者かではなく、<br><em>何を動かしてきたか。</em></h2>
+        <h2 class="sec-title">魅力は、<br><em>見つけた瞬間に武器になる。</em></h2>
         <div class="sec-body">
-          <p>古賀久達は、株式会社Ma 代表取締役。佐賀を拠点に、企業支援・コーチング・NPO活動・海外事業を横断しながら、「人の可能性に火をつける」活動を展開しています。</p>
+          <p>古賀久達は、株式会社Ma 代表取締役。佐賀を拠点に、企業支援・コーチング・NPO活動・海外事業を横断しながら、「その人にしか出せない魅力」を事業と発信に変える活動を展開しています。</p>
           <p>国内では、フィットネス事業の経営のほか、企業PR、SNSコンサルティング、コーチング、動画を活用した人材・採用支援を展開。NPO法人グローバルブリッジ理事長として、国際交流・教育支援・地域活性化にも取り組んでいます。</p>
           <p>海外では、フィリピン現地法人 Bohol Sunset Properties Inc. の代表としてボホール島での不動産事業を展開しながら、フィリピン・ドバイ・インドネシアほか10ヶ国以上の人的ネットワークを活かした海外進出・ビジネスマッチング支援にも対応しています。</p>
           <p style="font-family:var(--serif);font-size:18px;color:var(--fg);margin-top:32px;">国内と海外、双方で動き続けてきたからこそ、見えるものがある。<br>経営者であり、挑戦者であり、支援者であり、表現者。</p>
@@ -533,8 +536,8 @@
     <div class="two-col two-col-40" style="margin-bottom:64px;">
       <div><div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">06</span>Services</div></div>
       <div>
-        <h2 class="sec-title">あなたの<em>魅力</em>を、<br>選ばれる理由に変える。</h2>
-        <p style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:60ch;margin:0;">売り込みではなく、引き出すこと。整えるのではなく、にじみ出させること。<br>古賀久達のサービスは、すべて「あなたが、あなたのまま選ばれる」ためにあります。</p>
+        <h2 class="sec-title">あなたの<em>魅力</em>を、<br>売れる言葉と導線に変える。</h2>
+        <p style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:60ch;margin:0;">売り込みではなく、引き出すこと。整えるだけでなく、伝わる順番に並べること。<br>古賀久達のサービスは、すべて「あなたが、あなたのまま選ばれる」ためにあります。</p>
       </div>
     </div>
     <div style="overflow:hidden;margin-bottom:56px;position:relative;">
@@ -647,7 +650,7 @@
       <div class="two-col two-col-40" style="align-items:flex-start;gap:80px;">
         <div>
           <div class="kicker reveal" style="margin-bottom:24px;"><span class="dot"></span>Pain Points</div>
-          <h3 class="reveal sec-title" style="margin-bottom:16px;">面倒なことほど、<br>徹底的に<br>サポートします。</h3>
+          <h3 class="reveal sec-title" style="margin-bottom:16px;">面倒なことほど、<br class="br-pc">徹底的にサポートします。</h3>
           <p class="reveal" style="font-size:15px;line-height:1.85;color:var(--fg-2);">SNS運用で多くの社長がつまずくのは、これらの部分です。だからこそ、私たちはその<strong>"面倒くさい部分"まで徹底的に</strong>サポートします。</p>
           <p class="reveal" style="font-size:14px;line-height:1.85;color:var(--fg-2);margin-top:16px;">投稿の仕方、撮影時のカメラセッティング、企画づくり、台本作成、投稿後の分析、次回改善まで、社長や社員が<strong>自社で発信を続けられるように</strong>、実践ベースで伴走します。</p>
         </div>
@@ -778,7 +781,7 @@
       <div class="two-col two-col-40" style="align-items:center;gap:80px;">
         <div>
           <div class="kicker reveal" style="margin-bottom:24px;"><span class="dot"></span>Trust Architecture</div>
-          <h3 class="reveal sec-title" style="margin-bottom:20px;">信用は、<br>投稿本数 × 年月で<br>積み上がる。</h3>
+          <h3 class="reveal sec-title" style="margin-bottom:20px;">信用は、<br class="br-pc">投稿本数 × 年月で<br class="br-pc">積み上がる。</h3>
           <p class="reveal" style="font-size:15px;line-height:1.85;color:var(--fg-2);">SNSで信頼と信用を得るために大切なことは、シンプルです。それは<strong>投稿本数と、投稿し続けた年月</strong>です。</p>
           <p class="reveal" style="font-size:15px;line-height:1.85;color:var(--fg-2);margin-top:16px;">どれだけ良い会社でも、発信していなければ伝わりません。どれだけ素晴らしい社長でも、想いや人柄が見えなければ、選ばれません。</p>
           <p class="reveal" style="font-family:var(--serif);font-size:18px;color:var(--fg);line-height:1.7;margin-top:24px;padding-left:20px;border-left:3px solid var(--accent);">「いつか始めよう」では、遅い時代です。<br>早く始めた会社ほど、信用が積み上がり、採用にも営業にもブランドにも効いていきます。</p>
@@ -865,7 +868,7 @@
       <div class="two-col two-col-40" style="gap:80px;align-items:flex-start;">
         <div>
           <div class="reveal" style="font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px;">Chapter 01</div>
-          <h3 class="reveal sec-title" style="margin-bottom:24px;">ワクワクより<br>不安が<br>大きかった。</h3>
+          <h3 class="reveal sec-title" style="margin-bottom:24px;">ワクワクより<br class="br-pc">不安が大きかった。</h3>
           <div class="reveal" style="padding:28px 32px;background:var(--bg-2);border-left:3px solid var(--accent);margin-bottom:28px;">
             <p class="serif" style="font-size:17px;line-height:1.8;color:var(--fg);margin:0;">"海外の市場を見てみたい。アジアで勝負してみたい。世界に向けて、自分の人生を一度きりの挑戦にしたい。"</p>
           </div>
@@ -920,7 +923,7 @@
       <div class="two-col two-col-40" style="gap:80px;align-items:flex-start;">
         <div>
           <div class="reveal" style="font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px;">Chapter 03</div>
-          <h3 class="reveal sec-title" style="margin-bottom:24px;">でも、現実は<br>甘くなかった。</h3>
+          <h3 class="reveal sec-title" style="margin-bottom:24px;">でも、現実は<br class="br-pc">甘くなかった。</h3>
           <p class="reveal" style="font-size:15px;line-height:1.85;color:var(--fg-2);">日本の文化、歴史、飲食を海外に届けたい——そんな想いでスタートしましたが、立ちはだかる壁の連続でした。</p>
           <div class="reveal" style="margin-top:32px;padding:32px 36px;background:var(--invert-bg);color:var(--invert-fg);">
             <p style="font-family:var(--serif);font-size:14px;color:rgba(244,241,234,.5);margin:0 0 12px;letter-spacing:.04em;">一番きつかったのは——</p>
@@ -1169,7 +1172,7 @@
     <div class="two-col two-col-ee">
       <div>
         <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">—</span>Easy entry</div>
-        <h2 class="sec-title" style="margin-top:24px;">こんな相談から<br><em>で大丈夫です。</em></h2>
+        <h2 class="sec-title" style="margin-top:24px;">まだ言葉に<br><em>なっていなくて大丈夫です。</em></h2>
         <p style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:44ch;">まだ、何を頼めばいいか決まっていなくても大丈夫です。<br>まとまっていない状態から火をつけるのが、古賀久達の役割です。</p>
         <a href="https://lin.ee/wD9FKfk" target="_blank" rel="noopener" class="btn" style="margin-top:24px;">まずは話してみる <span class="arrow">→</span></a>
       </div>
@@ -1224,7 +1227,7 @@
     <p style="font-size:17px;line-height:2;color:var(--fg-2);max-width:48ch;">そういう人の中にある<em style="color:var(--accent);font-style:normal;font-family:var(--serif);">火種</em>を見つけることが、<br>古賀久達の仕事です。</p>
   </div>
 </section>
-<div style="overflow:hidden;position:relative;">
+<div class="community-stars-banner" style="overflow:hidden;position:relative;">
   <img src="image/community-stars.jpg" alt="人とのつながり" class="img-banner parallax-img" style="width:100%;height:400px;object-fit:cover;object-position:center 40%;display:block;filter:brightness(0.72);" />
   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
     <p style="font-family:var(--serif);font-size:clamp(22px,3.5vw,44px);color:#F4F1EA;text-align:center;line-height:1.6;margin:0;text-shadow:0 2px 20px rgba(0,0,0,0.5);">一人ひとりの中にある、<br>まだ見ぬ可能性。</p>
@@ -1382,8 +1385,8 @@
   <div class="wrap">
     <div style="margin-bottom:64px;" class="reveal">
       <div class="kicker"><span class="dot"></span><span style="margin-right:14px;font-family:var(--mono);color:var(--accent);">13</span>Contact</div>
-      <h2 class="sec-title" style="margin-top:24px;">LINEで気軽に<br><em>話しかけてください。</em></h2>
-      <p style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:52ch;margin:0;">まずは30分の壁打ちから。<br>整っていない相談でも、まとまっていない想いでも大丈夫です。</p>
+      <h2 class="sec-title" style="margin-top:24px;">最初の一歩は、<br><em>30分の壁打ちでいい。</em></h2>
+      <p style="font-size:16px;line-height:1.95;color:var(--fg-2);max-width:52ch;margin:0;">いきなり依頼内容を決めなくて大丈夫です。<br>今の悩み、やりたいこと、うまく伝わっていないことをLINEで送ってください。</p>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);" class="contact-line-grid reveal">
       <!-- LINE CTA -->
