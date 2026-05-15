@@ -1190,6 +1190,20 @@ section.sp-lg.grain h2 {
   font-size: 40px !important;
 }
 
+.service-visual-grid img,
+.easy-entry-photo img,
+.global-consultation-photo img,
+.founder-story-img {
+  transition: transform 1.4s ease, filter 0.35s ease;
+}
+
+.service-visual-grid figure:hover img,
+.easy-entry-photo:hover img,
+.global-consultation-photo:hover img {
+  transform: scale(1.035);
+  filter: brightness(0.92) saturate(1.05) !important;
+}
+
 .voice-grid + div,
 .voice-grid + div .btn {
   font-size: 16px !important;
@@ -1235,6 +1249,10 @@ section.sp-lg.grain h2 {
   .spark-divider p,
   .community-stars-banner p {
     font-size: 30px !important;
+  }
+
+  .service-visual-grid {
+    grid-template-columns: 1fr !important;
   }
 
   .njs-lines > div {
@@ -1311,6 +1329,50 @@ section.sp-lg.grain h2 {
   .community-stars-banner p {
     font-size: 24px !important;
     line-height: 1.55 !important;
+  }
+
+  .service-visual-grid {
+    margin-bottom: 36px !important;
+  }
+
+  .service-visual-grid img {
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  #corporate-pr img {
+    max-height: 300px;
+  }
+
+  .founder-story-img,
+  .global-consultation-photo img {
+    height: 300px !important;
+    object-position: center 42% !important;
+  }
+
+  #corporate-pr [style*="left:48px"],
+  #corporate-pr [style*="left:42px"] {
+    left: 22px !important;
+    right: 22px !important;
+    bottom: 24px !important;
+  }
+
+  #corporate-pr [style*="padding:22px 32px"] {
+    left: 0 !important;
+    right: 0 !important;
+    padding: 16px 20px !important;
+  }
+
+  #corporate-pr [style*="font-size:clamp(22px"],
+  #founder-story [style*="left:48px"] {
+    left: 22px !important;
+    right: 22px !important;
+    bottom: 22px !important;
+  }
+
+  #founder-story [style*="left:48px"] div,
+  .global-consultation-photo [style*="font-family:var(--mono)"] {
+    font-size: 9px !important;
+    line-height: 1.5 !important;
   }
 
   .njs-lines > div {
