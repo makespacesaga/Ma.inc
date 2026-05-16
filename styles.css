@@ -1385,3 +1385,220 @@ section.sp-lg.grain h2 {
     font-size: 32px !important;
   }
 }
+
+/* === Conversion path sections === */
+.consult-menu {
+  background: var(--bg);
+}
+
+.consult-grid,
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line-strong);
+  border: 1px solid var(--line-strong);
+}
+
+.consult-card,
+.flow-grid > div {
+  background: var(--bg);
+  color: var(--fg);
+  text-decoration: none;
+  padding: 36px 30px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.consult-card:hover {
+  background: var(--bg-2);
+  transform: translateY(-2px);
+}
+
+.consult-card .mono,
+.flow-grid .mono {
+  color: var(--accent);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.consult-card strong,
+.flow-grid strong {
+  font-size: 20px;
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0 !important;
+}
+
+.consult-card p,
+.flow-grid p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--fg-2);
+  margin: 0;
+}
+
+.first-check-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.first-check-list > div {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 18px;
+  align-items: start;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.first-check-list .mono {
+  color: var(--accent);
+  padding-top: 3px;
+}
+
+.first-check-list strong {
+  font-size: 18px;
+  line-height: 1.55;
+  font-weight: 700;
+  letter-spacing: 0 !important;
+}
+
+.consult-flow {
+  border-top: 1px solid var(--line);
+}
+
+.flow-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.flow-grid > div {
+  min-height: 230px;
+}
+
+.flow-cta {
+  margin-top: 48px;
+  padding: 40px 44px;
+  background: var(--fg);
+  color: var(--invert-fg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+.flow-cta p {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .consult-grid,
+  .flow-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .consult-grid,
+  .flow-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .consult-card,
+  .flow-grid > div {
+    min-height: auto;
+    padding: 28px 24px;
+  }
+
+  .first-check-list > div {
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+  }
+
+  .first-check-list strong {
+    font-size: 16px;
+  }
+
+  .flow-cta {
+    padding: 32px 24px;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .flow-cta .btn {
+    justify-content: center;
+  }
+}
+
+/* === Japanese line-break tuning === */
+h1, h2, h3,
+.sec-title,
+.roles-card-pad > div:nth-child(2) > div:first-child,
+.svc-top article > div:nth-child(2) > div:first-child,
+.svc-grid article > div:nth-child(2) > div:first-child,
+.str-grid > div > div:nth-child(2),
+.consult-card strong,
+.flow-grid strong,
+.first-check-list strong,
+.ee-item .serif,
+.check-item span:last-child,
+.njs-lines > div {
+  line-break: strict;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  letter-spacing: 0 !important;
+}
+
+.sec-title,
+#corporate-pr h2,
+#founder-story h2,
+#founder-story h3,
+#legacy h2,
+#legacy h3 {
+  max-width: 18em;
+}
+
+.roles-card-pad > div:nth-child(2) > div:first-child,
+.svc-top article > div:nth-child(2) > div:first-child,
+.svc-grid article > div:nth-child(2) > div:first-child,
+.str-grid > div > div:nth-child(2) {
+  text-wrap: balance;
+}
+
+@media (max-width: 640px) {
+  .sec-title,
+  #corporate-pr h2,
+  #founder-story h2,
+  #founder-story h3,
+  #legacy h2,
+  #legacy h3 {
+    max-width: 100%;
+  }
+
+  #roles .sec-title,
+  #services .sec-title,
+  #corporate-pr h2,
+  #founder-story h2 {
+    font-size: clamp(28px, 8vw, 34px) !important;
+    line-height: 1.32 !important;
+  }
+
+  #founder-story h3 {
+    line-height: 1.32 !important;
+  }
+
+  .roles-card-pad > div:nth-child(2) > div:first-child,
+  .svc-top article > div:nth-child(2) > div:first-child,
+  .svc-grid article > div:nth-child(2) > div:first-child {
+    font-size: 18px !important;
+    line-height: 1.45 !important;
+  }
+}
